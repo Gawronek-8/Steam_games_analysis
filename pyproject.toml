@@ -1,0 +1,9 @@
+[project]
+name = "projekt-bi-steam"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.14.1",
+    "pydantic-settings>=2.16.1",
+    "requests>=2.34.2",
+]

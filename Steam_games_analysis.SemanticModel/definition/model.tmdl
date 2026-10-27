@@ -1,0 +1,43 @@
+model Model
+	culture: pl-PL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pl-PL
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["itad_price_history","steam_top_games","steam_upcoming_games","steam_tags","steam_categories","worldbank_countries","worldbank_gdp_per_capita_ppp","worldbank_gni_per_capita_ppp","nbp_rates_table_B","nbp_rates_table_A","steam_top_games_tags","steam_upcoming_games_tags"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table itad_price_history
+ref table DateTableTemplate_edeed630-78f3-4f0f-a8d5-577270c30b91
+ref table LocalDateTable_02f1479d-bf09-41a8-9f86-7fabec4a5659
+ref table steam_top_games
+ref table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
+ref table steam_upcoming_games
+ref table LocalDateTable_a37d7f5c-8fe7-4bb3-bd75-50a9cf25b07d
+ref table steam_tags
+ref table LocalDateTable_6a3e3d4a-fd09-4db6-afc6-b4aba7702182
+ref table steam_categories
+ref table LocalDateTable_8396ffc6-3629-4487-a183-9f6b790286b3
+ref table worldbank_countries
+ref table LocalDateTable_f663dd65-b187-4f79-b3b6-ae39d1013b83
+ref table worldbank_gdp_per_capita_ppp
+ref table LocalDateTable_e104698c-cb04-4ace-aa77-571134aee5c5
+ref table worldbank_gni_per_capita_ppp
+ref table LocalDateTable_75efcab7-f236-45c4-a24e-5612487b2222
+ref table nbp_rates_table_B
+ref table LocalDateTable_00b03177-f93e-4b56-9c88-a4842b1f3db1
+ref table LocalDateTable_5266c5f0-dbe3-40ed-8c2d-ce0cda70af35
+ref table nbp_rates_table_A
+ref table LocalDateTable_bdfdcd3a-cd60-4dc4-8464-8c2407f70493
+ref table LocalDateTable_764cee47-54ed-4a1d-99b2-5c8d64919c4f
+ref table steam_top_games_tags
+ref table steam_upcoming_games_tags
+
+ref cultureInfo pl-PL
+

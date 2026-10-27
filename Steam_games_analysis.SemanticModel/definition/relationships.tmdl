@@ -1,0 +1,92 @@
+relationship ceecdc6c-d6e4-42ab-bbb7-f3302106b0c8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: itad_price_history.timestamp
+	toColumn: LocalDateTable_02f1479d-bf09-41a8-9f86-7fabec4a5659.Date
+
+relationship 5b54e5c1-1a33-47aa-90b2-37e29ca36899
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_top_games.fetched_at_utc
+	toColumn: LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53.Date
+
+relationship c7bc2855-48e4-4bb4-b787-c4c28d32529b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_upcoming_games.fetched_at_utc
+	toColumn: LocalDateTable_a37d7f5c-8fe7-4bb3-bd75-50a9cf25b07d.Date
+
+relationship c8187a60-b1b5-4f3d-aec5-b44c1a0e0a90
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_tags.fetched_at_utc
+	toColumn: LocalDateTable_6a3e3d4a-fd09-4db6-afc6-b4aba7702182.Date
+
+relationship befe6844-0e3b-44c1-8b1a-5f897fe6e87e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_categories.fetched_at_utc
+	toColumn: LocalDateTable_8396ffc6-3629-4487-a183-9f6b790286b3.Date
+
+relationship 360be846-5c1f-4e2e-bdde-5f8e48a7c529
+	joinOnDateBehavior: datePartOnly
+	fromColumn: worldbank_countries.fetched_at_utc
+	toColumn: LocalDateTable_f663dd65-b187-4f79-b3b6-ae39d1013b83.Date
+
+relationship bfae9ad7-3f4a-48f0-9810-1346d8bc741f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: worldbank_gdp_per_capita_ppp.fetched_at_utc
+	toColumn: LocalDateTable_e104698c-cb04-4ace-aa77-571134aee5c5.Date
+
+relationship 1f4b626a-c373-42c6-84d6-240c7502960e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: worldbank_gni_per_capita_ppp.fetched_at_utc
+	toColumn: LocalDateTable_75efcab7-f236-45c4-a24e-5612487b2222.Date
+
+relationship da702cc3-bbac-47e7-a546-a025619f1102
+	joinOnDateBehavior: datePartOnly
+	fromColumn: nbp_rates_table_B.fetched_at_utc
+	toColumn: LocalDateTable_00b03177-f93e-4b56-9c88-a4842b1f3db1.Date
+
+relationship b43a7acc-a826-49cf-b817-ae48bd07470c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: nbp_rates_table_B.effectiveDate
+	toColumn: LocalDateTable_5266c5f0-dbe3-40ed-8c2d-ce0cda70af35.Date
+
+relationship 7f5d1e45-04db-4daa-9cee-c87bade38a2c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: nbp_rates_table_A.fetched_at_utc
+	toColumn: LocalDateTable_bdfdcd3a-cd60-4dc4-8464-8c2407f70493.Date
+
+relationship d0e25e44-caec-4cf1-af3c-5ddd0c3c7281
+	joinOnDateBehavior: datePartOnly
+	fromColumn: nbp_rates_table_A.effectiveDate
+	toColumn: LocalDateTable_764cee47-54ed-4a1d-99b2-5c8d64919c4f.Date
+
+relationship AutoDetected_0b50f76c-ab42-42e2-bbd5-fd594f21096d
+	fromColumn: steam_top_games_tags.tag_id
+	toColumn: steam_tags.tagid
+
+relationship AutoDetected_bcc10da3-3f30-4f79-ad44-5fdabece696a
+	fromColumn: steam_upcoming_games_tags.tag_id
+	toColumn: steam_tags.tagid
+
+relationship 4db54a7a-210f-aecd-88ca-14a01a24ccdc
+	fromColumn: itad_price_history.app_id
+	toColumn: steam_top_games.appid
+
+relationship f12782aa-40a9-0bc4-e8cc-a9fc96f7b1ae
+	fromColumn: itad_price_history.country
+	toColumn: worldbank_countries.id
+
+relationship a5db8c9d-030b-3bc1-0153-7b3053f769fa
+	fromColumn: worldbank_gdp_per_capita_ppp.countryiso3code
+	toColumn: worldbank_countries.id
+
+relationship 5d527b2b-b8ac-25c0-36ef-1fb480a4cc17
+	fromColumn: worldbank_gni_per_capita_ppp.countryiso3code
+	toColumn: worldbank_countries.id
+
+relationship cdc27c89-c516-6132-0b48-5c92c340046e
+	fromColumn: steam_top_games_tags.game_id
+	toColumn: steam_top_games.appid
+
+relationship 63fc77f7-3d1f-d212-c4df-3006d80aa66e
+	fromColumn: steam_upcoming_games_tags.game_id
+	toColumn: steam_upcoming_games.appid
+

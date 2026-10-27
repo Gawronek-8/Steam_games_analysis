@@ -1,0 +1,178 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 44.819567992474276
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "itad_price_history",
+          "nodeLineageTag": "949abc2f-54c9-4c97-bfb9-0e8d7673f4c6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 584.63742496427926
+          },
+          "nodeIndex": "steam_top_games",
+          "nodeLineageTag": "6311e145-40b1-4134-8418-93d976950da4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 291.4822990033814,
+            "y": 584.63742496427926
+          },
+          "nodeIndex": "steam_upcoming_games",
+          "nodeLineageTag": "aa60cf94-d558-4ccc-a55f-6f1290112ea7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1365.5328732794346,
+            "y": 728.161875500572
+          },
+          "nodeIndex": "steam_tags",
+          "nodeLineageTag": "21e38a3c-a250-43d5-ba2f-35aa55a2a66e",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 581.3844968582107,
+            "y": 583.05732381572716
+          },
+          "nodeIndex": "steam_categories",
+          "nodeLineageTag": "251b7169-0154-44a8-9753-6e168dfc64c5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 448.23779364045481,
+            "y": 0
+          },
+          "nodeIndex": "worldbank_countries",
+          "nodeLineageTag": "1a32fa5f-21b5-4a80-909b-b6681e49309d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 830.20406485068531,
+            "y": 0
+          },
+          "nodeIndex": "worldbank_gdp_per_capita_ppp",
+          "nodeLineageTag": "8d42c1c6-d590-471a-91c1-8fc81f1f0b19",
+          "size": {
+            "height": 149.89039088754993,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 818.72515007144148,
+            "y": 191.19223897480487
+          },
+          "nodeIndex": "worldbank_gni_per_capita_ppp",
+          "nodeLineageTag": "ff08494c-71e9-4c45-8a68-c16d0a4c6f65",
+          "size": {
+            "height": 145,
+            "width": 230.83979770289579
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1169.08939831063,
+            "y": 0
+          },
+          "nodeIndex": "nbp_rates_table_B",
+          "nodeLineageTag": "ce859080-0d5b-428c-91df-cfeb211305e4",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1502.0725339157452,
+            "y": 0
+          },
+          "nodeIndex": "nbp_rates_table_A",
+          "nodeLineageTag": "5a3ed17d-3886-4d6b-90b2-aeb1af5ffb55",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1364.185527252333,
+            "y": 449.42326416698444
+          },
+          "nodeIndex": "steam_top_games_tags",
+          "nodeLineageTag": "c47715b6-1338-4cff-be2a-d0c6dda30515",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 857.60824857502394,
+            "y": 860.249562790532
+          },
+          "nodeIndex": "steam_upcoming_games_tags",
+          "nodeLineageTag": "5d1b408a-7ad2-4981-9ba1-f5d02700c211",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Wszystkie tabele",
+      "zoomValue": 63.287087723234038,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Wszystkie tabele",
+  "defaultDiagram": "Wszystkie tabele"
+}

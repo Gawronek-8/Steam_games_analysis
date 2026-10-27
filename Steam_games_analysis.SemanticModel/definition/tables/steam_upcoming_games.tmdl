@@ -1,0 +1,515 @@
+table steam_upcoming_games
+	lineageTag: aa60cf94-d558-4ccc-a55f-6f1290112ea7
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: c827271b-1e07-4d2c-8e0a-39c5b08ca4d5
+		summarizeBy: sum
+		sourceColumn: rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column page_start
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a902a58-22de-4360-ac80-e23c62d44020
+		summarizeBy: sum
+		sourceColumn: page_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column fetched_at_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ebfc0d62-227b-4729-95c8-2c8907480571
+		summarizeBy: none
+		sourceColumn: fetched_at_utc
+
+		variation Variation
+			isDefault
+			relationship: c7bc2855-48e4-4bb4-b787-c4c28d32529b
+			defaultHierarchy: LocalDateTable_a37d7f5c-8fe7-4bb3-bd75-50a9cf25b07d.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 61e0f3a0-ee59-4c2c-bade-cf1038e811ec
+		summarizeBy: sum
+		sourceColumn: item_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: c03e6958-9eae-4dd8-a90e-2e147aaa4a78
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column success
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f0606cd-2ff6-4c56-90a9-524a5675d6cd
+		summarizeBy: sum
+		sourceColumn: success
+
+		annotation SummarizationSetBy = Automatic
+
+	column visible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6f4e117f-b6dd-4e99-81cc-ed7f1223cb0b
+		summarizeBy: none
+		sourceColumn: visible
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 639d6570-f423-4570-a4fb-71e163ba598f
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_url_path
+		dataType: string
+		lineageTag: e0fbce76-f765-49fc-a038-8a7a578bac20
+		summarizeBy: none
+		sourceColumn: store_url_path
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_url_slug
+		dataType: string
+		lineageTag: 2b8316c8-48b8-4813-9f46-804ceac62250
+		summarizeBy: none
+		sourceColumn: store_url_slug
+
+		annotation SummarizationSetBy = Automatic
+
+	column appid
+		dataType: int64
+		formatString: 0
+		lineageTag: 427a4ccd-c39a-4947-86a2-52d65ec2f2a4
+		summarizeBy: none
+		sourceColumn: appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: int64
+		formatString: 0
+		lineageTag: e1bc9167-14c6-4991-bee5-f454dac7e047
+		summarizeBy: sum
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'categories.supported_player_categoryids'
+		dataType: string
+		lineageTag: 6f99cbf8-b0ec-46b5-8ead-d6dc18644958
+		summarizeBy: none
+		sourceColumn: categories.supported_player_categoryids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'categories.feature_categoryids'
+		dataType: string
+		lineageTag: 48838dbf-9957-41c4-9b2a-3a268e89239b
+		summarizeBy: none
+		sourceColumn: categories.feature_categoryids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'categories.controller_categoryids'
+		dataType: string
+		lineageTag: 7f7171f5-9449-48d5-9a9b-3e0fbaad7e83
+		summarizeBy: none
+		sourceColumn: categories.controller_categoryids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.review_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e07dff0-e6b0-4436-badd-a37dc63a693e
+		summarizeBy: sum
+		sourceColumn: reviews.summary_filtered.review_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.percent_positive'
+		dataType: int64
+		formatString: 0
+		lineageTag: 751161b9-d171-4aa0-81ff-06e61c33e270
+		summarizeBy: sum
+		sourceColumn: reviews.summary_filtered.percent_positive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.review_score'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f744476-6ecd-40fe-9eb2-db527e043e64
+		summarizeBy: sum
+		sourceColumn: reviews.summary_filtered.review_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.review_score_label'
+		dataType: string
+		lineageTag: c16eb9a7-af0d-4a5d-92fd-c5cbe91cfadc
+		summarizeBy: none
+		sourceColumn: reviews.summary_filtered.review_score_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.short_description'
+		dataType: string
+		lineageTag: 0d48f409-eeea-4508-893e-f0ddff4ad2a9
+		summarizeBy: none
+		sourceColumn: basic_info.short_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.publishers'
+		dataType: string
+		lineageTag: 71236285-cad1-42a3-bd59-430f1eb4c367
+		summarizeBy: none
+		sourceColumn: basic_info.publishers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.developers'
+		dataType: string
+		lineageTag: 4100a574-6428-41cc-90dc-0d2b36d9463c
+		summarizeBy: none
+		sourceColumn: basic_info.developers
+
+		annotation SummarizationSetBy = Automatic
+
+	column tags
+		dataType: string
+		lineageTag: c317b962-8b50-4dc5-91ec-5b21a88640d4
+		summarizeBy: none
+		sourceColumn: tags
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.steam_release_date'
+		dataType: int64
+		formatString: 0
+		lineageTag: fd4f7753-52d5-43b8-b168-ec6273a8635b
+		summarizeBy: sum
+		sourceColumn: release.steam_release_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.is_coming_soon'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a79ca7df-2084-4355-a9c5-d31648f49b9c
+		summarizeBy: none
+		sourceColumn: release.is_coming_soon
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.coming_soon_display'
+		dataType: string
+		lineageTag: 4b29b1b1-3168-455a-8ae8-cf357eca0bb4
+		summarizeBy: none
+		sourceColumn: release.coming_soon_display
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_coming_soon
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6a09268c-44e8-4f38-be42-c42400a5f105
+		summarizeBy: none
+		sourceColumn: is_coming_soon
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.packageid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 82a484c8-d8bc-46ae-ad20-445287b47eb3
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.packageid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.purchase_option_name'
+		dataType: string
+		lineageTag: 865e37a8-3de0-4dfd-bf5d-dde3c746fab3
+		summarizeBy: none
+		sourceColumn: best_purchase_option.purchase_option_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.final_price_in_cents'
+		dataType: int64
+		formatString: 0
+		lineageTag: e824a15a-c3e3-47a7-b6e0-3198df23c284
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.final_price_in_cents
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.formatted_final_price'
+		dataType: string
+		lineageTag: ec12c641-2c8f-4261-bcc4-934fde9d7738
+		summarizeBy: none
+		sourceColumn: best_purchase_option.formatted_final_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.user_can_purchase_as_gift'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7a354506-89c7-436f-a408-bf12de63facf
+		summarizeBy: none
+		sourceColumn: best_purchase_option.user_can_purchase_as_gift
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.hide_discount_pct_for_compliance'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9d41c4c2-35a2-48d7-adb2-064334c9dbca
+		summarizeBy: none
+		sourceColumn: best_purchase_option.hide_discount_pct_for_compliance
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.included_game_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 167ce94a-3bc0-4d4c-8f9e-387e8f0fa70d
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.included_game_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.must_purchase_as_set'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7c9f11f0-b07c-4b6c-874e-f86e3b15bd9e
+		summarizeBy: none
+		sourceColumn: best_purchase_option.must_purchase_as_set
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.package_group'
+		dataType: string
+		lineageTag: 81e50317-c5a4-46d9-845d-d6fafd66d641
+		summarizeBy: none
+		sourceColumn: best_purchase_option.package_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.price_cannot_be_displayed_as_discount'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a1c595f9-679f-49fc-81b4-10633116cabf
+		summarizeBy: none
+		sourceColumn: best_purchase_option.price_cannot_be_displayed_as_discount
+
+		annotation SummarizationSetBy = Automatic
+
+	column content_descriptorids
+		dataType: string
+		lineageTag: 722e7ab1-2438-4555-b7b9-4a72c3186b8a
+		summarizeBy: none
+		sourceColumn: content_descriptorids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.franchises'
+		dataType: string
+		lineageTag: 316fdf33-1b15-440e-bb5d-ff1b2ece7412
+		summarizeBy: none
+		sourceColumn: basic_info.franchises
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.original_price_in_cents'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8803a924-6e8c-4fe8-a793-c0890f1c9229
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.original_price_in_cents
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.formatted_original_price'
+		dataType: string
+		lineageTag: 02447b62-6d58-49a4-82e8-88abdabcc936
+		summarizeBy: none
+		sourceColumn: best_purchase_option.formatted_original_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.discount_pct'
+		dataType: int64
+		formatString: 0
+		lineageTag: 96b0b3ce-0e73-4f6c-8dc1-eaca56d67447
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.active_discounts'
+		dataType: string
+		lineageTag: 9f7c6840-8de3-4d56-8dfe-fd4962befc29
+		summarizeBy: none
+		sourceColumn: best_purchase_option.active_discounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.demo_appid'
+		dataType: string
+		lineageTag: 39ff500c-740a-4f89-8d0c-9365850d5ce7
+		summarizeBy: none
+		sourceColumn: related_items.demo_appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.demos'
+		dataType: string
+		lineageTag: d01e349b-7179-4f27-97cb-4b12686f2a56
+		summarizeBy: none
+		sourceColumn: related_items.demos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.standalone_demo_appid'
+		dataType: string
+		lineageTag: fe0dc189-afd5-4d14-acfe-75d560c141b7
+		summarizeBy: none
+		sourceColumn: related_items.standalone_demo_appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.standalone_demos'
+		dataType: string
+		lineageTag: 6e9a565e-e9a8-43bd-a968-7d6f1a0680a7
+		summarizeBy: none
+		sourceColumn: related_items.standalone_demos
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_early_access
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dced86a2-038e-451b-b8b5-8ca9c7290056
+		summarizeBy: none
+		sourceColumn: is_early_access
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.custom_release_date_message'
+		dataType: string
+		lineageTag: a2bfc8b5-d11d-4538-80a1-6044596d2d41
+		summarizeBy: none
+		sourceColumn: release.custom_release_date_message
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.is_early_access'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5d001c10-3289-4e08-9c75-08ebaf6c38d4
+		summarizeBy: none
+		sourceColumn: release.is_early_access
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.original_release_date'
+		dataType: int64
+		formatString: 0
+		lineageTag: c70fff2a-2b48-460b-8cb2-e9be7d5f94ca
+		summarizeBy: sum
+		sourceColumn: release.original_release_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.capsule_headline'
+		dataType: string
+		lineageTag: fd2eb3b9-bc15-4a36-a0d4-d2a413e65d63
+		summarizeBy: none
+		sourceColumn: basic_info.capsule_headline
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.parent_appid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 29448e59-f85f-4168-86ad-d2cb80e954a0
+		summarizeBy: sum
+		sourceColumn: related_items.parent_appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_free
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 73a22188-b60c-481c-8202-d2a3ae80dd16
+		summarizeBy: none
+		sourceColumn: is_free
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.playtests'
+		dataType: string
+		lineageTag: 22fb4269-f65c-4d3b-8a00-25df37915151
+		summarizeBy: none
+		sourceColumn: related_items.playtests
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_url_path_override
+		dataType: string
+		lineageTag: 508a7062-5326-4e9a-b563-bbe9202f2f1c
+		summarizeBy: none
+		sourceColumn: store_url_path_override
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.release_from_early_access_date'
+		dataType: string
+		lineageTag: 253cbd5e-b098-493b-aa22-d35024313608
+		summarizeBy: none
+		sourceColumn: release.release_from_early_access_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.release_from_early_access_style'
+		dataType: string
+		lineageTag: b25cf71d-2484-4d76-88fa-bce74a870d60
+		summarizeBy: none
+		sourceColumn: release.release_from_early_access_style
+
+		annotation SummarizationSetBy = Automatic
+
+	partition steam_upcoming_games = m
+		mode: import
+		source =
+				let
+				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_upcoming_games.csv"), [Delimiter = ",", Columns = 59, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"rank", Int64.Type}, {"page_start", Int64.Type}, {"fetched_at_utc", type datetime}, {"item_type", Int64.Type}, {"id", Int64.Type}, {"success", Int64.Type}, {"visible", type logical}, {"name", type text}, {"store_url_path", type text}, {"store_url_slug", type text}, {"appid", Int64.Type}, {"type", Int64.Type}, {"tagids", type text}, {"categories.supported_player_categoryids", type text}, {"categories.feature_categoryids", type text}, {"categories.controller_categoryids", type text}, {"reviews.summary_filtered.review_count", Int64.Type}, {"reviews.summary_filtered.percent_positive", Int64.Type}, {"reviews.summary_filtered.review_score", Int64.Type}, {"reviews.summary_filtered.review_score_label", type text}, {"basic_info.short_description", type text}, {"basic_info.publishers", type text}, {"basic_info.developers", type text}, {"tags", type text}, {"release.steam_release_date", Int64.Type}, {"release.is_coming_soon", type logical}, {"release.coming_soon_display", type text}, {"is_coming_soon", type logical}, {"best_purchase_option.packageid", Int64.Type}, {"best_purchase_option.purchase_option_name", type text}, {"best_purchase_option.final_price_in_cents", Int64.Type}, {"best_purchase_option.formatted_final_price", type text}, {"best_purchase_option.user_can_purchase_as_gift", type logical}, {"best_purchase_option.hide_discount_pct_for_compliance", type logical}, {"best_purchase_option.included_game_count", Int64.Type}, {"best_purchase_option.must_purchase_as_set", type logical}, {"best_purchase_option.package_group", type text}, {"best_purchase_option.price_cannot_be_displayed_as_discount", type logical}, {"content_descriptorids", type text}, {"basic_info.franchises", type text}, {"best_purchase_option.original_price_in_cents", Int64.Type}, {"best_purchase_option.formatted_original_price", type text}, {"best_purchase_option.discount_pct", Int64.Type}, {"best_purchase_option.active_discounts", type text}, {"related_items.demo_appid", type text}, {"related_items.demos", type text}, {"related_items.standalone_demo_appid", type text}, {"related_items.standalone_demos", type text}, {"is_early_access", type logical}, {"release.custom_release_date_message", type text}, {"release.is_early_access", type logical}, {"release.original_release_date", Int64.Type}, {"basic_info.capsule_headline", type text}, {"related_items.parent_appid", Int64.Type}, {"is_free", type logical}, {"related_items.playtests", type text}, {"store_url_path_override", type text}, {"release.release_from_early_access_date", type text}, {"release.release_from_early_access_style", type text}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"tagids"}),
+				  #"Usunięto duplikaty" = Table.Distinct(#"Usunięto kolumny", {"id"})
+				in
+				  #"Usunięto duplikaty"
+
+	annotation PBI_ResultType = Table
+

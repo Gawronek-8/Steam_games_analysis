@@ -1,0 +1,6 @@
+{
+  "tables": ["A", "B"],
+  "start_date": "2023-01-01",
+  "end_date": null,
+  "max_days_per_request": 93
+}

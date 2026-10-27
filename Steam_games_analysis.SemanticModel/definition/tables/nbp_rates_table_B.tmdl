@@ -1,0 +1,85 @@
+table nbp_rates_table_B
+	lineageTag: ce859080-0d5b-428c-91df-cfeb211305e4
+
+	column fetched_at_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: da2482ac-ee77-4106-b35e-d864db5292e9
+		summarizeBy: none
+		sourceColumn: fetched_at_utc
+
+		variation Variation
+			isDefault
+			relationship: da702cc3-bbac-47e7-a546-a025619f1102
+			defaultHierarchy: LocalDateTable_00b03177-f93e-4b56-9c88-a4842b1f3db1.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+	column table
+		dataType: string
+		lineageTag: e479ec88-4a51-4644-b89e-47f6a53b411a
+		summarizeBy: none
+		sourceColumn: table
+
+		annotation SummarizationSetBy = Automatic
+
+	column no
+		dataType: string
+		lineageTag: eea1e9cb-120a-406f-b808-2d41d5513c37
+		summarizeBy: none
+		sourceColumn: no
+
+		annotation SummarizationSetBy = Automatic
+
+	column effectiveDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bb071469-0659-4a20-bcf6-4f8ec43cbdba
+		summarizeBy: none
+		sourceColumn: effectiveDate
+
+		variation Variation
+			isDefault
+			relationship: b43a7acc-a826-49cf-b817-ae48bd07470c
+			defaultHierarchy: LocalDateTable_5266c5f0-dbe3-40ed-8c2d-ce0cda70af35.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column currency
+		dataType: string
+		lineageTag: 7bd293a5-b44e-471c-a65f-0ac1886173b9
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column code
+		dataType: string
+		lineageTag: 5a8a2175-317e-495f-a745-9fad348faef6
+		summarizeBy: none
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column mid
+		dataType: string
+		lineageTag: b4e30e06-e7e2-4a84-9555-e268d618ede7
+		summarizeBy: none
+		sourceColumn: mid
+
+		annotation SummarizationSetBy = Automatic
+
+	partition nbp_rates_table_B = m
+		mode: import
+		source =
+				let
+				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\nbp_rates_table_B.csv"), [Delimiter = ",", Columns = 7, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"table", type text}, {"no", type text}, {"effectiveDate", type date}, {"currency", type text}, {"code", type text}, {"mid", type text}}, "pl")
+				in
+				  #"Zmieniono typ kolumny"
+
+	annotation PBI_ResultType = Table
+

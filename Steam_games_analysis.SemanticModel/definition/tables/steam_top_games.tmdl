@@ -1,0 +1,692 @@
+table steam_top_games
+	lineageTag: 6311e145-40b1-4134-8418-93d976950da4
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: b3540f71-dee2-46f7-a0ad-d506c4d68417
+		summarizeBy: sum
+		sourceColumn: rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column page_start
+		dataType: int64
+		formatString: 0
+		lineageTag: a6e3ef30-6978-4e88-91ca-32023baa6600
+		summarizeBy: sum
+		sourceColumn: page_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column fetched_at_utc
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 59d66652-bb02-4a7b-aed8-2b93bf3dc0ca
+		summarizeBy: none
+		sourceColumn: fetched_at_utc
+
+		variation Variation
+			isDefault
+			relationship: 5b54e5c1-1a33-47aa-90b2-37e29ca36899
+			defaultHierarchy: LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_type
+		dataType: int64
+		formatString: 0
+		lineageTag: ed91be21-733a-4a22-8295-04608c220ecf
+		summarizeBy: sum
+		sourceColumn: item_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: f592786c-c82a-44d3-996d-12543b74087c
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column success
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a714c9d-1681-4720-8140-43ca578ff7c0
+		summarizeBy: sum
+		sourceColumn: success
+
+		annotation SummarizationSetBy = Automatic
+
+	column visible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c2943d3d-12ef-49e7-9a36-a3815b548909
+		summarizeBy: none
+		sourceColumn: visible
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 3d975c7a-d474-497d-b341-25150c647ab1
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_url_path
+		dataType: string
+		lineageTag: 53b10895-a8b2-4ea0-a165-37200d918a57
+		summarizeBy: none
+		sourceColumn: store_url_path
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_url_slug
+		dataType: string
+		lineageTag: caf6c6d8-dd55-43af-bb24-0522518b74c9
+		summarizeBy: none
+		sourceColumn: store_url_slug
+
+		annotation SummarizationSetBy = Automatic
+
+	column appid
+		dataType: int64
+		formatString: 0
+		lineageTag: 7855b04d-0bea-42d6-9e64-4c371cafffc8
+		summarizeBy: none
+		sourceColumn: appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: int64
+		formatString: 0
+		lineageTag: 5439d76e-15dc-4400-9e70-856543cec9f9
+		summarizeBy: sum
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.parent_appid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b32492a-9c2d-41ce-9cde-b9356e93c0db
+		summarizeBy: sum
+		sourceColumn: related_items.parent_appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column content_descriptorids
+		dataType: string
+		lineageTag: 66ec476e-8488-44d8-8cba-31aa92f910f6
+		summarizeBy: none
+		sourceColumn: content_descriptorids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'categories.supported_player_categoryids'
+		dataType: string
+		lineageTag: efb08851-5f2c-4bc6-ab59-f13b8a3eefa8
+		summarizeBy: none
+		sourceColumn: categories.supported_player_categoryids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'categories.feature_categoryids'
+		dataType: string
+		lineageTag: 90355694-9bc7-4ebc-baed-0858e6ccc3a5
+		summarizeBy: none
+		sourceColumn: categories.feature_categoryids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'categories.controller_categoryids'
+		dataType: string
+		lineageTag: c71f4984-8e83-4a19-a69f-c420b8591b2b
+		summarizeBy: none
+		sourceColumn: categories.controller_categoryids
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.review_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: c9655b33-3750-4cef-938a-78e2cabbd2bf
+		summarizeBy: sum
+		sourceColumn: reviews.summary_filtered.review_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.percent_positive'
+		dataType: int64
+		formatString: 0
+		lineageTag: 28ca064b-deaf-4615-9f7f-0c94eaab6529
+		summarizeBy: sum
+		sourceColumn: reviews.summary_filtered.percent_positive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.review_score'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d269364-a70f-4075-8a29-cd406d2af416
+		summarizeBy: sum
+		sourceColumn: reviews.summary_filtered.review_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_filtered.review_score_label'
+		dataType: string
+		lineageTag: d5fbe752-0050-4c3d-a6c0-1fe69575f62a
+		summarizeBy: none
+		sourceColumn: reviews.summary_filtered.review_score_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_language_specific.review_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: dd012a2b-a3e4-41de-a418-15e6dcc29bec
+		summarizeBy: sum
+		sourceColumn: reviews.summary_language_specific.review_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_language_specific.percent_positive'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6734f710-291d-492d-931c-0d4db0a2dfc0
+		summarizeBy: sum
+		sourceColumn: reviews.summary_language_specific.percent_positive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_language_specific.review_score'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c4783c6-21c8-47b1-8f48-b270c8320293
+		summarizeBy: sum
+		sourceColumn: reviews.summary_language_specific.review_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_language_specific.review_score_label'
+		dataType: string
+		lineageTag: f9400521-f4d3-43d3-ae51-d347c59716aa
+		summarizeBy: none
+		sourceColumn: reviews.summary_language_specific.review_score_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.short_description'
+		dataType: string
+		lineageTag: 1010c1bb-2b5c-4eec-8e8b-d306441d526d
+		summarizeBy: none
+		sourceColumn: basic_info.short_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.publishers'
+		dataType: string
+		lineageTag: d8a27d34-624e-4126-9370-ee2d1441443a
+		summarizeBy: none
+		sourceColumn: basic_info.publishers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.developers'
+		dataType: string
+		lineageTag: ab40005e-bd33-47a7-a664-ebe1ed067579
+		summarizeBy: none
+		sourceColumn: basic_info.developers
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.franchises'
+		dataType: string
+		lineageTag: 9419b919-3e4b-4d24-944d-97a96224ab80
+		summarizeBy: none
+		sourceColumn: basic_info.franchises
+
+		annotation SummarizationSetBy = Automatic
+
+	column tags
+		dataType: string
+		lineageTag: f8d72d55-a1a0-4115-b406-5d26ef6ea667
+		summarizeBy: none
+		sourceColumn: tags
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.steam_release_date'
+		dataType: int64
+		formatString: 0
+		lineageTag: 32bf7b36-ae73-4240-b142-07b7d3aace5a
+		summarizeBy: sum
+		sourceColumn: release.steam_release_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.packageid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 455b17d4-9181-44a4-a5ca-51cec99ed617
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.packageid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.purchase_option_name'
+		dataType: string
+		lineageTag: 5c8f3627-c628-4d7f-bbc8-90d712690dff
+		summarizeBy: none
+		sourceColumn: best_purchase_option.purchase_option_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.final_price_in_cents'
+		dataType: int64
+		formatString: 0
+		lineageTag: fa8c4270-06c0-45bb-95b6-f5845f69c578
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.final_price_in_cents
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.formatted_final_price'
+		dataType: string
+		lineageTag: 6620f02e-8cde-4b07-abe6-0f2dbd70cfe3
+		summarizeBy: none
+		sourceColumn: best_purchase_option.formatted_final_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.user_can_purchase_as_gift'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a5626f2a-a65d-4719-9d2d-0918e88b14e6
+		summarizeBy: none
+		sourceColumn: best_purchase_option.user_can_purchase_as_gift
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.hide_discount_pct_for_compliance'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2cb8f3c5-b06b-4499-b09f-588c21cf8111
+		summarizeBy: none
+		sourceColumn: best_purchase_option.hide_discount_pct_for_compliance
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.included_game_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8757a5af-e483-475c-a7e2-752aa884464a
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.included_game_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.must_purchase_as_set'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b267a868-dc9a-4b99-8997-ca8b6e2d882c
+		summarizeBy: none
+		sourceColumn: best_purchase_option.must_purchase_as_set
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.package_group'
+		dataType: string
+		lineageTag: 59c99a37-da4f-4272-b61c-56d338453d9b
+		summarizeBy: none
+		sourceColumn: best_purchase_option.package_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.price_cannot_be_displayed_as_discount'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 27527b05-9fdb-445a-97c9-4037dc7ea537
+		summarizeBy: none
+		sourceColumn: best_purchase_option.price_cannot_be_displayed_as_discount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_unfiltered.review_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ca5fe5a-769d-4a50-834e-45219706ba82
+		summarizeBy: sum
+		sourceColumn: reviews.summary_unfiltered.review_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_unfiltered.percent_positive'
+		dataType: int64
+		formatString: 0
+		lineageTag: 87c34f55-faee-4d85-bf39-ed9cfb90fa1d
+		summarizeBy: sum
+		sourceColumn: reviews.summary_unfiltered.percent_positive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_unfiltered.review_score'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f457f67-7503-4f85-a15c-6970e346f27b
+		summarizeBy: sum
+		sourceColumn: reviews.summary_unfiltered.review_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reviews.summary_unfiltered.review_score_label'
+		dataType: string
+		lineageTag: 91be3f3e-e344-465b-9a6d-26503f2c9b46
+		summarizeBy: none
+		sourceColumn: reviews.summary_unfiltered.review_score_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.original_release_date'
+		dataType: int64
+		formatString: 0
+		lineageTag: 254d3f61-3130-4919-9225-3f9e2c9eb661
+		summarizeBy: sum
+		sourceColumn: release.original_release_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.original_price_in_cents'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e326940-b348-46c8-a74b-8f4d5fe45801
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.original_price_in_cents
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.formatted_original_price'
+		dataType: string
+		lineageTag: 1a259a99-4ac1-4e25-91f5-e7e974c670f9
+		summarizeBy: none
+		sourceColumn: best_purchase_option.formatted_original_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.discount_pct'
+		dataType: int64
+		formatString: 0
+		lineageTag: 73eccb0d-10f7-4cbe-96ca-384fb3e72821
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.active_discounts'
+		dataType: string
+		lineageTag: 738706b0-5aee-4eed-9723-7039ded7c512
+		summarizeBy: none
+		sourceColumn: best_purchase_option.active_discounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_free
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2616f9f0-6409-48c2-b388-a62d20c86189
+		summarizeBy: none
+		sourceColumn: is_free
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.demo_appid'
+		dataType: string
+		lineageTag: c857d430-e2ec-4e71-b8ca-74746636c53a
+		summarizeBy: none
+		sourceColumn: related_items.demo_appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.demos'
+		dataType: string
+		lineageTag: 92165906-e99a-4dee-b000-7427dd780d2b
+		summarizeBy: none
+		sourceColumn: related_items.demos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.release_from_early_access_date'
+		dataType: int64
+		formatString: 0
+		lineageTag: df9da6a2-b63a-4da4-8904-f3fd28b2dd88
+		summarizeBy: sum
+		sourceColumn: release.release_from_early_access_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.release_from_early_access_style'
+		dataType: int64
+		formatString: 0
+		lineageTag: a5e316a3-13bb-46f5-a3fc-21097dff0610
+		summarizeBy: sum
+		sourceColumn: release.release_from_early_access_style
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'basic_info.capsule_headline'
+		dataType: string
+		lineageTag: ed0014ec-4d6e-4d83-bdd3-c54f2f778e40
+		summarizeBy: none
+		sourceColumn: basic_info.capsule_headline
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_early_access
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ae9ce393-ef45-428c-bc4d-e0657e94e757
+		summarizeBy: none
+		sourceColumn: is_early_access
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.is_early_access'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2c63f351-411f-4d0c-9a67-8ed7bf6b70d4
+		summarizeBy: none
+		sourceColumn: release.is_early_access
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.standalone_demo_appid'
+		dataType: string
+		lineageTag: 91b07b1e-8751-4016-b0d6-12b590f580ed
+		summarizeBy: none
+		sourceColumn: related_items.standalone_demo_appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.standalone_demos'
+		dataType: string
+		lineageTag: 21206cda-8f73-41fa-a53b-c70ab7f259f2
+		summarizeBy: none
+		sourceColumn: related_items.standalone_demos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.original_steam_release_date'
+		dataType: int64
+		formatString: 0
+		lineageTag: 912541d1-4bbe-4d42-a0c1-f2d063e03b6a
+		summarizeBy: sum
+		sourceColumn: release.original_steam_release_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.recurrence_info.packageid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9224eb71-48a1-42fa-bab1-2fd00598a65a
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.recurrence_info.packageid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.recurrence_info.billing_agreement_type'
+		dataType: int64
+		formatString: 0
+		lineageTag: da160382-e9cc-4687-b271-f6d2ae8c04ca
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.recurrence_info.billing_agreement_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.recurrence_info.renewal_time_unit'
+		dataType: int64
+		formatString: 0
+		lineageTag: 915d3bbc-67e8-4974-82dd-de54f0be9ec0
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.recurrence_info.renewal_time_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.recurrence_info.renewal_time_period'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b007d47-9ef0-4417-9673-4143acf31205
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.recurrence_info.renewal_time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.recurrence_info.renewal_price_in_cents'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c12b32a-f290-4379-900b-53b2a53ce089
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.recurrence_info.renewal_price_in_cents
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.recurrence_info.formatted_renewal_price'
+		dataType: string
+		lineageTag: b578f128-59ef-46a7-b871-c3117f2bd683
+		summarizeBy: none
+		sourceColumn: best_purchase_option.recurrence_info.formatted_renewal_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.related_f2p.appid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 562b8ca5-b2ab-4bae-82c5-676ea33c6ed6
+		summarizeBy: sum
+		sourceColumn: related_items.related_f2p.appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.related_f2p.header_text'
+		dataType: string
+		lineageTag: 1ea8629c-feee-43a5-8fcb-d548537d3740
+		summarizeBy: none
+		sourceColumn: related_items.related_f2p.header_text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.related_f2p.description_text'
+		dataType: string
+		lineageTag: e22db33e-4b01-4b3a-b310-4421effbe7d1
+		summarizeBy: none
+		sourceColumn: related_items.related_f2p.description_text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.free_with_master_sub_appid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0588453f-a22d-4d3a-996a-c4493abcc92a
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.free_with_master_sub_appid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.bundleid'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e12c658-8d0f-44cc-8fe1-d8a4d6ccab31
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.bundleid
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.bundle_discount_pct'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5075c4eb-d826-4401-9b86-7a0af6e1c3a8
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.bundle_discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.price_before_bundle_discount'
+		dataType: int64
+		formatString: 0
+		lineageTag: cc082892-f22e-4e8c-ab3f-f0792384e159
+		summarizeBy: sum
+		sourceColumn: best_purchase_option.price_before_bundle_discount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'best_purchase_option.formatted_price_before_bundle_discount'
+		dataType: string
+		lineageTag: cd022f8f-e454-4a42-b5e2-549040d194a1
+		summarizeBy: none
+		sourceColumn: best_purchase_option.formatted_price_before_bundle_discount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'related_items.playtests'
+		dataType: string
+		lineageTag: 85cfd18a-eb11-4b6c-b29d-3d6e95889f41
+		summarizeBy: none
+		sourceColumn: related_items.playtests
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.mac_release_date'
+		dataType: string
+		lineageTag: 99d6dcd0-6394-4ded-8337-3b1ebbf32c75
+		summarizeBy: none
+		sourceColumn: release.mac_release_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'release.linux_release_date'
+		dataType: string
+		lineageTag: 591a2471-b554-4162-be4e-94d0591ca4eb
+		summarizeBy: none
+		sourceColumn: release.linux_release_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition steam_top_games = m
+		mode: import
+		source =
+				let
+				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_top_games.csv"), [Delimiter = ",", Columns = 79, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"rank", Int64.Type}, {"page_start", Int64.Type}, {"fetched_at_utc", type datetime}, {"item_type", Int64.Type}, {"id", Int64.Type}, {"success", Int64.Type}, {"visible", type logical}, {"name", type text}, {"store_url_path", type text}, {"store_url_slug", type text}, {"appid", Int64.Type}, {"type", Int64.Type}, {"related_items.parent_appid", Int64.Type}, {"content_descriptorids", type text}, {"tagids", type text}, {"categories.supported_player_categoryids", type text}, {"categories.feature_categoryids", type text}, {"categories.controller_categoryids", type text}, {"reviews.summary_filtered.review_count", Int64.Type}, {"reviews.summary_filtered.percent_positive", Int64.Type}, {"reviews.summary_filtered.review_score", Int64.Type}, {"reviews.summary_filtered.review_score_label", type text}, {"reviews.summary_language_specific.review_count", Int64.Type}, {"reviews.summary_language_specific.percent_positive", Int64.Type}, {"reviews.summary_language_specific.review_score", Int64.Type}, {"reviews.summary_language_specific.review_score_label", type text}, {"basic_info.short_description", type text}, {"basic_info.publishers", type text}, {"basic_info.developers", type text}, {"basic_info.franchises", type text}, {"tags", type text}, {"release.steam_release_date", Int64.Type}, {"best_purchase_option.packageid", Int64.Type}, {"best_purchase_option.purchase_option_name", type text}, {"best_purchase_option.final_price_in_cents", Int64.Type}, {"best_purchase_option.formatted_final_price", type text}, {"best_purchase_option.user_can_purchase_as_gift", type logical}, {"best_purchase_option.hide_discount_pct_for_compliance", type logical}, {"best_purchase_option.included_game_count", Int64.Type}, {"best_purchase_option.must_purchase_as_set", type logical}, {"best_purchase_option.package_group", type text}, {"best_purchase_option.price_cannot_be_displayed_as_discount", type logical}, {"reviews.summary_unfiltered.review_count", Int64.Type}, {"reviews.summary_unfiltered.percent_positive", Int64.Type}, {"reviews.summary_unfiltered.review_score", Int64.Type}, {"reviews.summary_unfiltered.review_score_label", type text}, {"release.original_release_date", Int64.Type}, {"best_purchase_option.original_price_in_cents", Int64.Type}, {"best_purchase_option.formatted_original_price", type text}, {"best_purchase_option.discount_pct", Int64.Type}, {"best_purchase_option.active_discounts", type text}, {"is_free", type logical}, {"related_items.demo_appid", type text}, {"related_items.demos", type text}, {"release.release_from_early_access_date", Int64.Type}, {"release.release_from_early_access_style", Int64.Type}, {"basic_info.capsule_headline", type text}, {"is_early_access", type logical}, {"release.is_early_access", type logical}, {"related_items.standalone_demo_appid", type text}, {"related_items.standalone_demos", type text}, {"release.original_steam_release_date", Int64.Type}, {"best_purchase_option.recurrence_info.packageid", Int64.Type}, {"best_purchase_option.recurrence_info.billing_agreement_type", Int64.Type}, {"best_purchase_option.recurrence_info.renewal_time_unit", Int64.Type}, {"best_purchase_option.recurrence_info.renewal_time_period", Int64.Type}, {"best_purchase_option.recurrence_info.renewal_price_in_cents", Int64.Type}, {"best_purchase_option.recurrence_info.formatted_renewal_price", type text}, {"related_items.related_f2p.appid", Int64.Type}, {"related_items.related_f2p.header_text", type text}, {"related_items.related_f2p.description_text", type text}, {"best_purchase_option.free_with_master_sub_appid", Int64.Type}, {"best_purchase_option.bundleid", Int64.Type}, {"best_purchase_option.bundle_discount_pct", Int64.Type}, {"best_purchase_option.price_before_bundle_discount", Int64.Type}, {"best_purchase_option.formatted_price_before_bundle_discount", type text}, {"related_items.playtests", type text}, {"release.mac_release_date", type text}, {"release.linux_release_date", type text}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"tagids"}),
+				  #"Usunięto duplikaty" = Table.Distinct(#"Usunięto kolumny", {"id"})
+				in
+				  #"Usunięto duplikaty"
+
+	annotation PBI_ResultType = Table
+

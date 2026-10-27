@@ -1,0 +1,9 @@
+{
+  "games_source_csv": "data/steam_top_games.csv",
+  "top_n_games": 7000,
+  "countries": ["PL", "DE", "FR", "US", "JP", "AR", "TR", "ES", "CH", "CN"],
+  "shops": [61],
+  "since": "2023-01-01T00:00:00Z",
+  "lookup_batch_size": 200,
+  "requests_per_5_min": 700
+}

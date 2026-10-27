@@ -1,0 +1,23 @@
+{
+  "query": {
+    "start": 0,
+    "count": 1000,
+    "sort": 10,
+    "filters": {
+      "coming_soon_only": true,
+      "type_filters": {
+        "include_games": true
+      }
+    }
+  },
+  "context": {
+    "language": "english",
+    "country_code": "US"
+  },
+  "data_request": {
+    "include_basic_info": true,
+    "include_tag_count": 20,
+    "include_release": true,
+    "include_reviews": true
+  }
+}

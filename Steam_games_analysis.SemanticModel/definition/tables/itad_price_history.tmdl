@@ -1,0 +1,113 @@
+table itad_price_history
+	lineageTag: 949abc2f-54c9-4c97-bfb9-0e8d7673f4c6
+
+	column app_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ef0605df-e11a-4f3f-bbd8-d1080fdc0aaf
+		summarizeBy: none
+		sourceColumn: app_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column itad_id
+		dataType: string
+		lineageTag: 29004d2d-72c3-4fc0-ba0f-a5a236cd9581
+		summarizeBy: none
+		sourceColumn: itad_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: dd6483f3-9edd-4bc5-b29a-5b0871d64405
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dece089d-4bdb-42a7-bdf2-b171b727ab13
+		summarizeBy: none
+		sourceColumn: timestamp
+
+		variation Variation
+			isDefault
+			relationship: ceecdc6c-d6e4-42ab-bbb7-f3302106b0c8
+			defaultHierarchy: LocalDateTable_02f1479d-bf09-41a8-9f86-7fabec4a5659.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+	column shop
+		dataType: string
+		lineageTag: 6a664250-4e4b-4d6e-ba3c-8fd877a528ed
+		summarizeBy: none
+		sourceColumn: shop
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: 75dd1592-21d1-4fa2-b557-9c8380dd61b9
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column regular_price
+		dataType: string
+		lineageTag: f82fd60c-2f17-4d79-ab2b-ebdf9f101b8e
+		summarizeBy: none
+		sourceColumn: regular_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column regular_price_int
+		dataType: int64
+		formatString: 0
+		lineageTag: e96768ab-f80e-4ccd-8088-348aad8703a5
+		summarizeBy: sum
+		sourceColumn: regular_price_int
+
+		annotation SummarizationSetBy = Automatic
+
+	column cut
+		dataType: int64
+		formatString: 0
+		lineageTag: 88536600-496c-4942-a393-ee23e72aabe6
+		summarizeBy: sum
+		sourceColumn: cut
+
+		annotation SummarizationSetBy = Automatic
+
+	column deal_price
+		dataType: string
+		lineageTag: 9d46599b-8102-4589-a20d-041ff374907f
+		summarizeBy: none
+		sourceColumn: deal_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column deal_price_int
+		dataType: int64
+		formatString: 0
+		lineageTag: bc0aec50-6422-4dd3-9369-a9d416c1b0c7
+		summarizeBy: sum
+		sourceColumn: deal_price_int
+
+		annotation SummarizationSetBy = Automatic
+
+	partition itad_price_history = m
+		mode: import
+		source =
+				let
+				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\itad_price_history.csv"), [Delimiter = ",", Columns = 11, QuoteStyle = QuoteStyle.None]),
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"app_id", Int64.Type}, {"itad_id", type text}, {"country", type text}, {"timestamp", type datetimezone}, {"shop", type text}, {"currency", type text}, {"regular_price", type text}, {"regular_price_int", Int64.Type}, {"cut", Int64.Type}, {"deal_price", type text}, {"deal_price_int", Int64.Type}}, "pl")
+				in
+				  #"Zmieniono typ kolumny"
+
+	annotation PBI_ResultType = Table
+
