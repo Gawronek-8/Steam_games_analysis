@@ -1,0 +1,24 @@
+expression fnCensor =
+		let
+		    Źródło = (name as nullable text, keywords as list) as nullable text =>
+		let
+		    Punctuation = {":", ",", ".", "!", "?", "'", "(", ")"},
+		
+		    CensorWord = (word as text) as text =>
+		        let
+		            core = Text.Trim(word, Punctuation),
+		            isBanned = List.Contains(keywords, core, Comparer.OrdinalIgnoreCase),
+		            mask = Text.Repeat("#", Text.Length(core))
+		        in
+		            if isBanned then Text.Replace(word, core, mask) else word,
+		
+		    Words = Text.Split(name, " "),
+		    Censored = List.Transform(Words, CensorWord)
+		in
+		    if name = null then null else Text.Combine(Censored, " ")
+		in
+		    Źródło
+	lineageTag: 3b2bcec3-c46f-4966-8f4e-08b078544763
+
+	annotation PBI_ResultType = Function
+

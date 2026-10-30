@@ -4,12 +4,13 @@ model Model
 	sourceQueryCulture: pl-PL
 	valueFilterBehavior: independent
 	dataAccessOptions
+		fastCombine
 		legacyRedirects
 		returnErrorValuesAsNull
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["itad_price_history","steam_top_games","steam_upcoming_games","steam_tags","steam_categories","worldbank_countries","worldbank_gdp_per_capita_ppp","worldbank_gni_per_capita_ppp","nbp_rates_table_B","nbp_rates_table_A","steam_top_games_tags","steam_upcoming_games_tags"]
+annotation PBI_QueryOrder = ["itad_price_history","steam_top_games","steam_upcoming_games","steam_tags","steam_categories","worldbank_countries","worldbank_gdp_per_capita_ppp","worldbank_gni_per_capita_ppp","nbp_rates_table_B","nbp_rates_table_A","steam_top_games_tags","steam_upcoming_games_tags","censored_words","fnCensor"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -38,6 +39,7 @@ ref table LocalDateTable_bdfdcd3a-cd60-4dc4-8464-8c2407f70493
 ref table LocalDateTable_764cee47-54ed-4a1d-99b2-5c8d64919c4f
 ref table steam_top_games_tags
 ref table steam_upcoming_games_tags
+ref table censored_words
 
 ref cultureInfo pl-PL
 

@@ -1,0 +1,28 @@
+table censored_words
+	isHidden
+	lineageTag: 4bc84065-e5c8-4c64-9d48-ab83485c8139
+
+	column censored_words
+		dataType: string
+		isHidden
+		lineageTag: 99ae3422-5e52-4d15-9d07-7340032aa5fe
+		summarizeBy: none
+		sourceColumn: censored_words
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition censored_words = m
+		mode: import
+		source =
+				let
+				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\censored_words.csv"), [Delimiter = ",", Columns = 1, QuoteStyle = QuoteStyle.None]),
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true])
+				in
+				  #"Nagłówki o podwyższonym poziomie"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

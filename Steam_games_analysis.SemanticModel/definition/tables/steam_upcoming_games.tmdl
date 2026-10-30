@@ -499,6 +499,14 @@ table steam_upcoming_games
 
 		annotation SummarizationSetBy = Automatic
 
+	column display_name
+		dataType: string
+		lineageTag: 7d739885-a072-440b-a4f9-587b4c8f83b3
+		summarizeBy: none
+		sourceColumn: display_name
+
+		annotation SummarizationSetBy = Automatic
+
 	partition steam_upcoming_games = m
 		mode: import
 		source =
@@ -507,9 +515,11 @@ table steam_upcoming_games
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
 				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"rank", Int64.Type}, {"page_start", Int64.Type}, {"fetched_at_utc", type datetime}, {"item_type", Int64.Type}, {"id", Int64.Type}, {"success", Int64.Type}, {"visible", type logical}, {"name", type text}, {"store_url_path", type text}, {"store_url_slug", type text}, {"appid", Int64.Type}, {"type", Int64.Type}, {"tagids", type text}, {"categories.supported_player_categoryids", type text}, {"categories.feature_categoryids", type text}, {"categories.controller_categoryids", type text}, {"reviews.summary_filtered.review_count", Int64.Type}, {"reviews.summary_filtered.percent_positive", Int64.Type}, {"reviews.summary_filtered.review_score", Int64.Type}, {"reviews.summary_filtered.review_score_label", type text}, {"basic_info.short_description", type text}, {"basic_info.publishers", type text}, {"basic_info.developers", type text}, {"tags", type text}, {"release.steam_release_date", Int64.Type}, {"release.is_coming_soon", type logical}, {"release.coming_soon_display", type text}, {"is_coming_soon", type logical}, {"best_purchase_option.packageid", Int64.Type}, {"best_purchase_option.purchase_option_name", type text}, {"best_purchase_option.final_price_in_cents", Int64.Type}, {"best_purchase_option.formatted_final_price", type text}, {"best_purchase_option.user_can_purchase_as_gift", type logical}, {"best_purchase_option.hide_discount_pct_for_compliance", type logical}, {"best_purchase_option.included_game_count", Int64.Type}, {"best_purchase_option.must_purchase_as_set", type logical}, {"best_purchase_option.package_group", type text}, {"best_purchase_option.price_cannot_be_displayed_as_discount", type logical}, {"content_descriptorids", type text}, {"basic_info.franchises", type text}, {"best_purchase_option.original_price_in_cents", Int64.Type}, {"best_purchase_option.formatted_original_price", type text}, {"best_purchase_option.discount_pct", Int64.Type}, {"best_purchase_option.active_discounts", type text}, {"related_items.demo_appid", type text}, {"related_items.demos", type text}, {"related_items.standalone_demo_appid", type text}, {"related_items.standalone_demos", type text}, {"is_early_access", type logical}, {"release.custom_release_date_message", type text}, {"release.is_early_access", type logical}, {"release.original_release_date", Int64.Type}, {"basic_info.capsule_headline", type text}, {"related_items.parent_appid", Int64.Type}, {"is_free", type logical}, {"related_items.playtests", type text}, {"store_url_path_override", type text}, {"release.release_from_early_access_date", type text}, {"release.release_from_early_access_style", type text}}, "pl"),
 				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"tagids"}),
-				  #"Usunięto duplikaty" = Table.Distinct(#"Usunięto kolumny", {"id"})
+				  #"Usunięto duplikaty" = Table.Distinct(#"Usunięto kolumny", {"id"}),
+				  #"Dodano niestandardowe" = Table.TransformColumnTypes(Table.AddColumn(#"Usunięto duplikaty", "display_name", each fnCensor([name], censored_words[censored_words])), {{"display_name", type text}}),
+				  #"Zmieniono kolejność kolumn" = Table.ReorderColumns(#"Dodano niestandardowe", {"rank", "page_start", "fetched_at_utc", "item_type", "id", "success", "visible", "display_name", "name", "store_url_path", "store_url_slug", "appid", "type", "categories.supported_player_categoryids", "categories.feature_categoryids", "categories.controller_categoryids", "reviews.summary_filtered.review_count", "reviews.summary_filtered.percent_positive", "reviews.summary_filtered.review_score", "reviews.summary_filtered.review_score_label", "basic_info.short_description", "basic_info.publishers", "basic_info.developers", "tags", "release.steam_release_date", "release.is_coming_soon", "release.coming_soon_display", "is_coming_soon", "best_purchase_option.packageid", "best_purchase_option.purchase_option_name", "best_purchase_option.final_price_in_cents", "best_purchase_option.formatted_final_price", "best_purchase_option.user_can_purchase_as_gift", "best_purchase_option.hide_discount_pct_for_compliance", "best_purchase_option.included_game_count", "best_purchase_option.must_purchase_as_set", "best_purchase_option.package_group", "best_purchase_option.price_cannot_be_displayed_as_discount", "content_descriptorids", "basic_info.franchises", "best_purchase_option.original_price_in_cents", "best_purchase_option.formatted_original_price", "best_purchase_option.discount_pct", "best_purchase_option.active_discounts", "related_items.demo_appid", "related_items.demos", "related_items.standalone_demo_appid", "related_items.standalone_demos", "is_early_access", "release.custom_release_date_message", "release.is_early_access", "release.original_release_date", "basic_info.capsule_headline", "related_items.parent_appid", "is_free", "related_items.playtests", "store_url_path_override", "release.release_from_early_access_date", "release.release_from_early_access_style"})
 				in
-				  #"Usunięto duplikaty"
+				  #"Zmieniono kolejność kolumn"
 
 	annotation PBI_ResultType = Table
 
