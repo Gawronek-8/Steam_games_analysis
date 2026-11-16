@@ -19,7 +19,7 @@ table steam_categories
 		dataType: int64
 		formatString: 0
 		lineageTag: a2dad147-7dea-45a0-9100-10ed1fb7eff4
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: categoryid
 
 		annotation SummarizationSetBy = Automatic

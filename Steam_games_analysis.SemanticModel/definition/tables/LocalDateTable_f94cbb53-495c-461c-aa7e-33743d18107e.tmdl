@@ -1,13 +1,13 @@
-table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
+table LocalDateTable_f94cbb53-495c-461c-aa7e-33743d18107e
 	isHidden
 	showAsVariationsOnly
-	lineageTag: daabc480-fcb7-4652-80db-f76796509760
+	lineageTag: 73defa32-b3be-494c-897d-ea37bd3cdd9a
 
 	column Date
 		dataType: dateTime
 		isHidden
 		formatString: General Date
-		lineageTag: 22399f75-c600-4106-8f70-d808f150142e
+		lineageTag: ce7a8626-cec3-4c77-b66b-44def96c551c
 		dataCategory: PaddedDateTableDates
 		summarizeBy: none
 		isNameInferred
@@ -19,7 +19,7 @@ table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 722086a7-fbd1-4460-b718-b366b185b793
+		lineageTag: 2e305cd8-2eaf-42b3-9539-46a04d3b0d2a
 		dataCategory: Years
 		summarizeBy: none
 
@@ -31,7 +31,7 @@ table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 430848e5-86bd-4998-9ba3-67150f88968f
+		lineageTag: f226f2fc-d7f5-45de-9ab2-c2af9e726892
 		dataCategory: MonthOfYear
 		summarizeBy: none
 
@@ -42,7 +42,7 @@ table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 	column Miesiąc = FORMAT([Date], "MMMM")
 		dataType: string
 		isHidden
-		lineageTag: 5b11a9e9-584a-450e-985c-f5317623f078
+		lineageTag: e98222bf-e50c-4e37-8ed3-0f6af63c3497
 		dataCategory: Months
 		summarizeBy: none
 		sortByColumn: 'Numer miesiąca'
@@ -55,7 +55,7 @@ table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 60387294-b228-4774-8844-50d1561f3c66
+		lineageTag: ef85508f-4ead-4406-b7fc-928335cd01c4
 		dataCategory: QuarterOfYear
 		summarizeBy: none
 
@@ -66,7 +66,7 @@ table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 	column Kwartał = "Kw. " & [Numer kwartału]
 		dataType: string
 		isHidden
-		lineageTag: b7db80f0-7d5b-433a-864b-3ed43d94a436
+		lineageTag: f86ebda4-b670-4335-865f-9993ec363e07
 		dataCategory: Quarters
 		summarizeBy: none
 		sortByColumn: 'Numer kwartału'
@@ -79,7 +79,7 @@ table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 44e1ffe9-b3e1-4afa-aba5-455057cbeddd
+		lineageTag: 7c20341c-3000-4410-a780-2a46fe010c5c
 		dataCategory: DayOfMonth
 		summarizeBy: none
 
@@ -88,29 +88,29 @@ table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 		annotation TemplateId = Day
 
 	hierarchy 'Hierarchia dat'
-		lineageTag: 312ec65a-3d26-430b-b0ce-35cfef32616c
+		lineageTag: c6edf241-3a48-4acc-95c5-9e2996dd9b83
 
 		level Rok
-			lineageTag: 3a9ba0e1-1dd0-4435-9e6e-cc83205f9b0e
+			lineageTag: ecd730cf-9f7b-4824-bfd6-00d892272a8c
 			column: Rok
 
 		level Kwartał
-			lineageTag: 6f6febc3-684e-423c-a165-90e2ea8c439f
+			lineageTag: cb0c6541-0ded-4400-b020-4ecb944f2f04
 			column: Kwartał
 
 		level Miesiąc
-			lineageTag: 198aa80f-edff-4b37-b025-d0a9980215eb
+			lineageTag: c50b7a9f-6bea-4028-9290-3b337854ef47
 			column: Miesiąc
 
 		level Dzień
-			lineageTag: 1cdb9ecb-1578-4aff-8111-4f855aa84650
+			lineageTag: 96ad2efe-dac3-4ccd-8043-ed963f14c683
 			column: Dzień
 
 		annotation TemplateId = DateHierarchy
 
-	partition LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53 = calculated
+	partition LocalDateTable_f94cbb53-495c-461c-aa7e-33743d18107e = calculated
 		mode: import
-		source = Calendar(Date(Year(MIN('steam_top_games'[fetched_at_utc])), 1, 1), Date(Year(MAX('steam_top_games'[fetched_at_utc])), 12, 31))
+		source = Calendar(Date(Year(MIN('steam_upcoming_games'[release_date])), 1, 1), Date(Year(MAX('steam_upcoming_games'[release_date])), 12, 31))
 
 	annotation __PBI_LocalDateTable = true
 

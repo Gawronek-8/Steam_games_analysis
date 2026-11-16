@@ -1,0 +1,31 @@
+table steam_top_games_categories
+	lineageTag: c53a4cf5-b48b-4562-b116-e0a4c117e486
+
+	column game_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 408bb7b3-5a82-4045-a037-5aeb1cd3eecb
+		summarizeBy: none
+		sourceColumn: game_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a06f0704-c67c-4d44-b115-61f77dc05cfc
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition steam_top_games_categories = m
+		mode: import
+		source =
+				let
+				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_top_games_categories.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"game_id", Int64.Type}, {"category_id", Int64.Type}}, "pl")
+				in
+				  #"Zmieniono typ kolumny"
+

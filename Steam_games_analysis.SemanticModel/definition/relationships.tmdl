@@ -3,16 +3,6 @@ relationship ceecdc6c-d6e4-42ab-bbb7-f3302106b0c8
 	fromColumn: itad_price_history.timestamp
 	toColumn: LocalDateTable_02f1479d-bf09-41a8-9f86-7fabec4a5659.Date
 
-relationship 5b54e5c1-1a33-47aa-90b2-37e29ca36899
-	joinOnDateBehavior: datePartOnly
-	fromColumn: steam_top_games.fetched_at_utc
-	toColumn: LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53.Date
-
-relationship c7bc2855-48e4-4bb4-b787-c4c28d32529b
-	joinOnDateBehavior: datePartOnly
-	fromColumn: steam_upcoming_games.fetched_at_utc
-	toColumn: LocalDateTable_a37d7f5c-8fe7-4bb3-bd75-50a9cf25b07d.Date
-
 relationship c8187a60-b1b5-4f3d-aec5-b44c1a0e0a90
 	joinOnDateBehavior: datePartOnly
 	fromColumn: steam_tags.fetched_at_utc
@@ -89,4 +79,61 @@ relationship cdc27c89-c516-6132-0b48-5c92c340046e
 relationship 63fc77f7-3d1f-d212-c4df-3006d80aa66e
 	fromColumn: steam_upcoming_games_tags.game_id
 	toColumn: steam_upcoming_games.appid
+
+relationship AutoDetected_8fa8e731-4cfd-49ae-bcd2-996146f6e711
+	fromColumn: steam_upcoming_games_categories.category_id
+	toColumn: steam_categories.categoryid
+
+relationship AutoDetected_b5cd3885-693f-420f-bc82-00dc2aa7d0b4
+	fromColumn: steam_top_games_categories.category_id
+	toColumn: steam_categories.categoryid
+
+relationship AutoDetected_026f3571-259e-447e-a1d1-9cfea5411b2f
+	fromColumn: steam_current_prices.appid
+	toColumn: steam_top_games.appid
+
+relationship e6de59d2-1d8e-598c-467a-b915f8419a3c
+	fromColumn: steam_current_prices.country_code
+	toColumn: worldbank_countries.iso2Code
+
+relationship 08b8c808-a213-e1b0-386e-7d191a451d5f
+	fromColumn: steam_top_games_categories.game_id
+	toColumn: steam_top_games.appid
+
+relationship 4d1ee292-b59d-d3dc-f684-e3af5a8710fe
+	fromColumn: steam_upcoming_games_categories.game_id
+	toColumn: steam_upcoming_games.appid
+
+relationship 8baa5c63-0af4-4fe7-9205-2643ac1e5876
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_current_prices.fetched_date
+	toColumn: LocalDateTable_0bc8f0a2-473f-48fc-b9fc-7cee3f24bfd1.Date
+
+relationship 43f8b515-8098-78dc-5ce7-1803f9b46bc9
+	fromColumn: nbp_rates_table_A.code
+	toColumn: worldbank_countries.id
+
+relationship f5c5d25d-efcc-decb-ed39-24631655d70d
+	fromColumn: nbp_rates_table_B.code
+	toColumn: worldbank_countries.id
+
+relationship 67527012-5635-447b-b660-75d7f519772f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_top_games.release_date
+	toColumn: LocalDateTable_33be30c1-f597-4dc8-bdad-f609ebeefef1.Date
+
+relationship f163d190-820e-45ca-bd21-4fb346b57e89
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_upcoming_games.release_date
+	toColumn: LocalDateTable_f94cbb53-495c-461c-aa7e-33743d18107e.Date
+
+relationship cb22879e-25ea-4a3e-8daf-60b7a6e5eb43
+	joinOnDateBehavior: datePartOnly
+	fromColumn: steam_upcoming_games.original_release_date
+	toColumn: LocalDateTable_2b42615d-0296-4d10-80e6-b119cee8b24b.Date
+
+relationship 018ed42b-803e-4e65-bec0-6be0268ff0c4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Release_Calendar.Date
+	toColumn: LocalDateTable_e0265d42-474f-4b70-93fe-a13550db86c0.Date
 

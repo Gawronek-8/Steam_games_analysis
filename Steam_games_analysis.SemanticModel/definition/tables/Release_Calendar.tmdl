@@ -1,0 +1,84 @@
+table Release_Calendar
+	lineageTag: f07decfb-e3bd-43ed-b9f9-bb71044fd517
+
+	column Date
+		formatString: General Date
+		lineageTag: 2e77b63c-db3f-4101-af54-cb02dea84bda
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 018ed42b-803e-4e65-bec0-6be0268ff0c4
+			defaultHierarchy: LocalDateTable_e0265d42-474f-4b70-93fe-a13550db86c0.'Hierarchia dat'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: 8a9bdd13-cef9-4eee-ace2-e84beb12c9a8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 67f83355-69ca-444f-b9b8-de766a73e37a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		formatString: 0
+		lineageTag: 0b8a8e63-1d59-4efe-a2f8-9736eb0a4a12
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month name'
+		lineageTag: 4e354dc5-c018-4785-8c3b-1ba4e6513631
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		lineageTag: 235d1fa2-49d2-47f9-9c8f-8e489de35376
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year-Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week
+		formatString: 0
+		lineageTag: 555ce83c-a415-4ee9-b753-af05305a54de
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Week]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Release_Calendar = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDAR(DATE(1970, 1, 1), DATE(2104, 12, 31)),
+				    "Year", YEAR([Date]),
+				    "Quarter", "Q" & QUARTER([Date]),
+				    "Month", MONTH([Date]),
+				    "Month name", FORMAT([Date], "mmmm"),
+				    "Year-Month", FORMAT([Date], "yyyy-mm"),
+				    "Week", WEEKNUM([Date], 2)
+				)
+
+	annotation PBI_Id = 928dbcd8d81d426da2c5d5b41911d0c0
+

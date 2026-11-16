@@ -10,7 +10,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["itad_price_history","steam_top_games","steam_upcoming_games","steam_tags","steam_categories","worldbank_countries","worldbank_gdp_per_capita_ppp","worldbank_gni_per_capita_ppp","nbp_rates_table_B","nbp_rates_table_A","steam_top_games_tags","steam_upcoming_games_tags","censored_words","fnCensor"]
+annotation PBI_QueryOrder = ["itad_price_history","steam_top_games","steam_upcoming_games","steam_tags","steam_categories","worldbank_countries","worldbank_gdp_per_capita_ppp","worldbank_gni_per_capita_ppp","nbp_rates_table_B","nbp_rates_table_A","steam_top_games_tags","steam_upcoming_games_tags","censored_words","fnCensor","steam_upcoming_games_categories","steam_top_games_categories","steam_current_prices"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -18,9 +18,7 @@ ref table itad_price_history
 ref table DateTableTemplate_edeed630-78f3-4f0f-a8d5-577270c30b91
 ref table LocalDateTable_02f1479d-bf09-41a8-9f86-7fabec4a5659
 ref table steam_top_games
-ref table LocalDateTable_833b1b10-eac5-40ef-bfa4-122e448e0d53
 ref table steam_upcoming_games
-ref table LocalDateTable_a37d7f5c-8fe7-4bb3-bd75-50a9cf25b07d
 ref table steam_tags
 ref table LocalDateTable_6a3e3d4a-fd09-4db6-afc6-b4aba7702182
 ref table steam_categories
@@ -40,6 +38,15 @@ ref table LocalDateTable_764cee47-54ed-4a1d-99b2-5c8d64919c4f
 ref table steam_top_games_tags
 ref table steam_upcoming_games_tags
 ref table censored_words
+ref table steam_upcoming_games_categories
+ref table steam_top_games_categories
+ref table steam_current_prices
+ref table LocalDateTable_0bc8f0a2-473f-48fc-b9fc-7cee3f24bfd1
+ref table LocalDateTable_33be30c1-f597-4dc8-bdad-f609ebeefef1
+ref table LocalDateTable_f94cbb53-495c-461c-aa7e-33743d18107e
+ref table LocalDateTable_2b42615d-0296-4d10-80e6-b119cee8b24b
+ref table Release_Calendar
+ref table LocalDateTable_e0265d42-474f-4b70-93fe-a13550db86c0
 
 ref cultureInfo pl-PL
 
