@@ -1,36 +1,6 @@
 table worldbank_gni_per_capita_ppp
 	lineageTag: ff08494c-71e9-4c45-8a68-c16d0a4c6f65
 
-	column fetched_at_utc
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: e7fb73f0-ebae-45ac-94e6-1575a485e7b3
-		summarizeBy: none
-		sourceColumn: fetched_at_utc
-
-		variation Variation
-			isDefault
-			relationship: 1f4b626a-c373-42c6-84d6-240c7502960e
-			defaultHierarchy: LocalDateTable_75efcab7-f236-45c4-a24e-5612487b2222.'Hierarchia dat'
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'indicator.id'
-		dataType: string
-		lineageTag: f65068d0-1e2c-48f1-9c14-5c65a3e8bff3
-		summarizeBy: none
-		sourceColumn: indicator.id
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'indicator.value'
-		dataType: string
-		lineageTag: 476064a8-371f-4bc4-aac9-ae77a747457d
-		summarizeBy: none
-		sourceColumn: indicator.value
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'country.id'
 		dataType: string
 		lineageTag: 1105a4b6-f21d-4809-977a-0506e998afc4
@@ -72,40 +42,18 @@ table worldbank_gni_per_capita_ppp
 
 		annotation SummarizationSetBy = Automatic
 
-	column unit
-		dataType: string
-		lineageTag: 73fd18f6-ed44-4e0f-9821-79b363090f92
-		summarizeBy: none
-		sourceColumn: unit
-
-		annotation SummarizationSetBy = Automatic
-
-	column obs_status
-		dataType: string
-		lineageTag: ed475404-2934-44f3-87de-ea82296ffe91
-		summarizeBy: none
-		sourceColumn: obs_status
-
-		annotation SummarizationSetBy = Automatic
-
-	column decimal
-		dataType: int64
-		formatString: 0
-		lineageTag: 67cc335c-185d-41a4-aa0d-ca0e5e46831f
-		summarizeBy: sum
-		sourceColumn: decimal
-
-		annotation SummarizationSetBy = Automatic
-
 	partition worldbank_gni_per_capita_ppp = m
 		mode: import
 		source =
 				let
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\worldbank_gni_per_capita_ppp.csv"), [Delimiter = ",", Columns = 11, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
-				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"indicator.id", type text}, {"indicator.value", type text}, {"country.id", type text}, {"country.value", type text}, {"countryiso3code", type text}, {"date", Int64.Type}, {"value", type text}, {"unit", type text}, {"obs_status", type text}, {"decimal", Int64.Type}}, "pl")
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"indicator.id", type text}, {"indicator.value", type text}, {"country.id", type text}, {"country.value", type text}, {"countryiso3code", type text}, {"date", Int64.Type}, {"value", type text}, {"unit", type text}, {"obs_status", type text}, {"decimal", Int64.Type}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"indicator.value", "indicator.id", "fetched_at_utc", "unit", "obs_status", "decimal"}),
+				  #"Posortowano wiersze" = Table.Sort(#"Usunięto kolumny", {{"date", Order.Descending}}),
+				  #"Przefiltrowano wiersze" = Table.SelectRows(#"Posortowano wiersze", each [value] <> null and [value] <> "")
 				in
-				  #"Zmieniono typ kolumny"
+				  #"Przefiltrowano wiersze"
 
 	annotation PBI_ResultType = Table
 

@@ -1,20 +1,6 @@
 table steam_categories
 	lineageTag: 251b7169-0154-44a8-9753-6e168dfc64c5
 
-	column fetched_at_utc
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: 07b09339-0390-4ce4-b063-4ad40fad1d6e
-		summarizeBy: none
-		sourceColumn: fetched_at_utc
-
-		variation Variation
-			isDefault
-			relationship: befe6844-0e3b-44c1-8b1a-5f897fe6e87e
-			defaultHierarchy: LocalDateTable_8396ffc6-3629-4487-a183-9f6b790286b3.'Hierarchia dat'
-
-		annotation SummarizationSetBy = Automatic
-
 	column categoryid
 		dataType: int64
 		formatString: 0
@@ -33,62 +19,11 @@ table steam_categories
 
 		annotation SummarizationSetBy = Automatic
 
-	column internal_name
-		dataType: string
-		lineageTag: 0dc4486f-e2e2-436b-9aaf-b3775e6ef349
-		summarizeBy: none
-		sourceColumn: internal_name
-
-		annotation SummarizationSetBy = Automatic
-
 	column display_name
 		dataType: string
 		lineageTag: 3b56161e-3f9a-43a0-8126-a4ffea5d9796
 		summarizeBy: none
 		sourceColumn: display_name
-
-		annotation SummarizationSetBy = Automatic
-
-	column image_url
-		dataType: string
-		lineageTag: 8a5c010b-e459-496f-963a-921cb8ee5209
-		summarizeBy: none
-		sourceColumn: image_url
-
-		annotation SummarizationSetBy = Automatic
-
-	column computed
-		dataType: boolean
-		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 2520cf4d-7080-40cf-8188-43f27e05e1e0
-		summarizeBy: none
-		sourceColumn: computed
-
-		annotation SummarizationSetBy = Automatic
-
-	column edit_url
-		dataType: string
-		lineageTag: 0bc307c7-d75f-4b73-b6b6-9182ad3592e7
-		summarizeBy: none
-		sourceColumn: edit_url
-
-		annotation SummarizationSetBy = Automatic
-
-	column edit_sort_order
-		dataType: int64
-		formatString: 0
-		lineageTag: 666938b5-3949-439b-a0bf-3afb3025d7a4
-		summarizeBy: sum
-		sourceColumn: edit_sort_order
-
-		annotation SummarizationSetBy = Automatic
-
-	column show_in_search
-		dataType: boolean
-		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 6b4a596d-3ac8-4bcd-a81c-214adf5f0f93
-		summarizeBy: none
-		sourceColumn: show_in_search
 
 		annotation SummarizationSetBy = Automatic
 
@@ -98,9 +33,10 @@ table steam_categories
 				let
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_categories.csv"), [Delimiter = ",", Columns = 10, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
-				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"categoryid", Int64.Type}, {"type", Int64.Type}, {"internal_name", type text}, {"display_name", type text}, {"image_url", type text}, {"computed", type logical}, {"edit_url", type text}, {"edit_sort_order", Int64.Type}, {"show_in_search", type logical}}, "pl")
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"categoryid", Int64.Type}, {"type", Int64.Type}, {"internal_name", type text}, {"display_name", type text}, {"image_url", type text}, {"computed", type logical}, {"edit_url", type text}, {"edit_sort_order", Int64.Type}, {"show_in_search", type logical}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"edit_sort_order", "image_url", "edit_url", "show_in_search", "fetched_at_utc", "internal_name", "computed"})
 				in
-				  #"Zmieniono typ kolumny"
+				  #"Usunięto kolumny"
 
 	annotation PBI_ResultType = Table
 

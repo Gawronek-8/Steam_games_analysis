@@ -66,11 +66,6 @@ table steam_upcoming_games
 		summarizeBy: none
 		sourceColumn: release_date
 
-		variation Variation
-			isDefault
-			relationship: f163d190-820e-45ca-bd21-4fb346b57e89
-			defaultHierarchy: LocalDateTable_f94cbb53-495c-461c-aa7e-33743d18107e.'Hierarchia dat'
-
 		annotation SummarizationSetBy = Automatic
 
 	column original_release_date

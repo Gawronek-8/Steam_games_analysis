@@ -26,28 +26,11 @@ table steam_current_prices
 
 		annotation SummarizationSetBy = Automatic
 
-	column price
-		dataType: string
-		lineageTag: efe99a0a-ce31-4d88-a95e-48895f3d819f
-		summarizeBy: none
-		sourceColumn: price
-
-		annotation SummarizationSetBy = Automatic
-
 	column initial
 		dataType: string
 		lineageTag: 751bb4a7-cca4-41f6-8f23-07a9822ec721
 		summarizeBy: none
 		sourceColumn: initial
-
-		annotation SummarizationSetBy = Automatic
-
-	column price_dsc
-		dataType: int64
-		formatString: 0
-		lineageTag: a008b70b-e844-4593-b965-0af1dfdee734
-		summarizeBy: sum
-		sourceColumn: price_dsc
 
 		annotation SummarizationSetBy = Automatic
 
@@ -59,31 +42,17 @@ table steam_current_prices
 
 		annotation SummarizationSetBy = Automatic
 
-	column fetched_date
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 5601f060-95d4-41e1-ad9b-78c0265f2343
-		summarizeBy: none
-		sourceColumn: fetched_date
-
-		variation Variation
-			isDefault
-			relationship: 8baa5c63-0af4-4fe7-9205-2643ac1e5876
-			defaultHierarchy: LocalDateTable_0bc8f0a2-473f-48fc-b9fc-7cee3f24bfd1.'Hierarchia dat'
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
 	partition steam_current_prices = m
 		mode: import
 		source =
 				let
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_current_prices.csv"), [Delimiter = ",", Columns = 8, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
-				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"appid", Int64.Type}, {"country_code", type text}, {"currency", type text}, {"price", type text}, {"initial", type text}, {"price_dsc", Int64.Type}, {"status", type text}, {"fetched_date", type date}}, "pl")
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"appid", Int64.Type}, {"country_code", type text}, {"currency", type text}, {"price", type text}, {"initial", type text}, {"price_dsc", Int64.Type}, {"status", type text}, {"fetched_date", type date}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"fetched_date", "price", "price_dsc"}),
+				  #"Przefiltrowano wiersze" = Table.SelectRows(#"Usunięto kolumny", each ([status] <> "not_available"))
 				in
-				  #"Zmieniono typ kolumny"
+				  #"Przefiltrowano wiersze"
 
 	annotation PBI_ResultType = Table
 

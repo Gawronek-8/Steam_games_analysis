@@ -86,11 +86,6 @@ table steam_top_games
 		summarizeBy: none
 		sourceColumn: release_date
 
-		variation Variation
-			isDefault
-			relationship: 67527012-5635-447b-b660-75d7f519772f
-			defaultHierarchy: LocalDateTable_33be30c1-f597-4dc8-bdad-f609ebeefef1.'Hierarchia dat'
-
 		annotation SummarizationSetBy = Automatic
 
 	partition steam_top_games = m

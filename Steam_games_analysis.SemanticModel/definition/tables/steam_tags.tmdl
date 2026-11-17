@@ -1,20 +1,6 @@
 table steam_tags
 	lineageTag: 21e38a3c-a250-43d5-ba2f-35aa55a2a66e
 
-	column fetched_at_utc
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: 9a2f5fc8-52b0-4b1d-b2c5-8b448c186660
-		summarizeBy: none
-		sourceColumn: fetched_at_utc
-
-		variation Variation
-			isDefault
-			relationship: c8187a60-b1b5-4f3d-aec5-b44c1a0e0a90
-			defaultHierarchy: LocalDateTable_6a3e3d4a-fd09-4db6-afc6-b4aba7702182.'Hierarchia dat'
-
-		annotation SummarizationSetBy = Automatic
-
 	column tagid
 		dataType: int64
 		formatString: 0
@@ -38,9 +24,10 @@ table steam_tags
 				let
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_tags.csv"), [Delimiter = ",", Columns = 3, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
-				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"tagid", Int64.Type}, {"name", type text}}, "pl")
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"tagid", Int64.Type}, {"name", type text}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"fetched_at_utc"})
 				in
-				  #"Zmieniono typ kolumny"
+				  #"Usunięto kolumny"
 
 	annotation PBI_ResultType = Table
 

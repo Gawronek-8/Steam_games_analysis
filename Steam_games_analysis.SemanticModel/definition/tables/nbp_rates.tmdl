@@ -1,0 +1,50 @@
+table nbp_rates
+	lineageTag: 5a3ed17d-3886-4d6b-90b2-aeb1af5ffb55
+
+	column effectiveDate
+		dataType: string
+		lineageTag: e784700c-17eb-4a90-a769-1ca8a0f33716
+		summarizeBy: none
+		sourceColumn: effectiveDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: ffe20f2c-2142-4539-bf31-46485c5796d9
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column code
+		dataType: string
+		lineageTag: de096956-8e27-42df-b51c-e5c9c377c27c
+		summarizeBy: none
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column mid
+		dataType: string
+		lineageTag: 9cca6b51-b69b-4bb8-a900-9f37f09f788d
+		summarizeBy: none
+		sourceColumn: mid
+
+		annotation SummarizationSetBy = Automatic
+
+	partition nbp_rates = m
+		mode: import
+		source =
+				let
+				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\nbp_rates_table_A.csv"), [Delimiter = ",", Columns = 7, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"table", type text}, {"no", type text}, {"effectiveDate", type date}, {"currency", type text}, {"code", type text}, {"mid", type text}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"fetched_at_utc", "table", "no"}),
+				  #"Dołączone zapytanie" = Table.Combine({#"Usunięto kolumny", nbp_rates_table_B}),
+				  Niestandardowe = Table.Combine({#"Dołączone zapytanie", Table.FromRecords({[effectiveDate = #date(2023, 1, 1), currency = "złotówka", code = "PLN", mid = 1]})})
+				in
+				  Niestandardowe
+
+	annotation PBI_ResultType = Table
+

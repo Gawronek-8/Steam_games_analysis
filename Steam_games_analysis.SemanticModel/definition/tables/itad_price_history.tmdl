@@ -10,14 +10,6 @@ table itad_price_history
 
 		annotation SummarizationSetBy = Automatic
 
-	column itad_id
-		dataType: string
-		lineageTag: 29004d2d-72c3-4fc0-ba0f-a5a236cd9581
-		summarizeBy: none
-		sourceColumn: itad_id
-
-		annotation SummarizationSetBy = Automatic
-
 	column country
 		dataType: string
 		lineageTag: dd6483f3-9edd-4bc5-b29a-5b0871d64405
@@ -40,14 +32,6 @@ table itad_price_history
 
 		annotation SummarizationSetBy = Automatic
 
-	column shop
-		dataType: string
-		lineageTag: 6a664250-4e4b-4d6e-ba3c-8fd877a528ed
-		summarizeBy: none
-		sourceColumn: shop
-
-		annotation SummarizationSetBy = Automatic
-
 	column currency
 		dataType: string
 		lineageTag: 75dd1592-21d1-4fa2-b557-9c8380dd61b9
@@ -61,15 +45,6 @@ table itad_price_history
 		lineageTag: f82fd60c-2f17-4d79-ab2b-ebdf9f101b8e
 		summarizeBy: none
 		sourceColumn: regular_price
-
-		annotation SummarizationSetBy = Automatic
-
-	column regular_price_int
-		dataType: int64
-		formatString: 0
-		lineageTag: e96768ab-f80e-4ccd-8088-348aad8703a5
-		summarizeBy: sum
-		sourceColumn: regular_price_int
 
 		annotation SummarizationSetBy = Automatic
 
@@ -90,24 +65,16 @@ table itad_price_history
 
 		annotation SummarizationSetBy = Automatic
 
-	column deal_price_int
-		dataType: int64
-		formatString: 0
-		lineageTag: bc0aec50-6422-4dd3-9369-a9d416c1b0c7
-		summarizeBy: sum
-		sourceColumn: deal_price_int
-
-		annotation SummarizationSetBy = Automatic
-
 	partition itad_price_history = m
 		mode: import
 		source =
 				let
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\itad_price_history.csv"), [Delimiter = ",", Columns = 11, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
-				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"app_id", Int64.Type}, {"itad_id", type text}, {"country", type text}, {"timestamp", type datetimezone}, {"shop", type text}, {"currency", type text}, {"regular_price", type text}, {"regular_price_int", Int64.Type}, {"cut", Int64.Type}, {"deal_price", type text}, {"deal_price_int", Int64.Type}}, "pl")
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"app_id", Int64.Type}, {"itad_id", type text}, {"country", type text}, {"timestamp", type datetimezone}, {"shop", type text}, {"currency", type text}, {"regular_price", type text}, {"regular_price_int", Int64.Type}, {"cut", Int64.Type}, {"deal_price", type text}, {"deal_price_int", Int64.Type}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"itad_id", "shop", "deal_price_int", "regular_price_int"})
 				in
-				  #"Zmieniono typ kolumny"
+				  #"Usunięto kolumny"
 
 	annotation PBI_ResultType = Table
 

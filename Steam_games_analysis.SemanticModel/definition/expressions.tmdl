@@ -22,3 +22,15 @@ expression fnCensor =
 
 	annotation PBI_ResultType = Function
 
+expression nbp_rates_table_B =
+		let
+		  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\nbp_rates_table_B.csv"), [Delimiter = ",", Columns = 7, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
+		  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"table", type text}, {"no", type text}, {"effectiveDate", type date}, {"currency", type text}, {"code", type text}, {"mid", type text}}, "pl"),
+		  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"table", "fetched_at_utc", "no"})
+		in
+		  #"Usunięto kolumny"
+	lineageTag: 261c50a3-5fa8-40ab-8d68-2439f1d2870b
+
+	annotation PBI_ResultType = Table
+

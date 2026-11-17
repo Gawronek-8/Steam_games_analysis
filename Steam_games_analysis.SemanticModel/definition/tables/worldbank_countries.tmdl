@@ -1,20 +1,6 @@
 table worldbank_countries
 	lineageTag: 1a32fa5f-21b5-4a80-909b-b6681e49309d
 
-	column fetched_at_utc
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: a1263c3d-2717-4a85-b61b-ba51b282299a
-		summarizeBy: none
-		sourceColumn: fetched_at_utc
-
-		variation Variation
-			isDefault
-			relationship: 360be846-5c1f-4e2e-bdde-5f8e48a7c529
-			defaultHierarchy: LocalDateTable_f663dd65-b187-4f79-b3b6-ae39d1013b83.'Hierarchia dat'
-
-		annotation SummarizationSetBy = Automatic
-
 	column id
 		dataType: string
 		lineageTag: 48c68803-5155-4778-9b39-a7ccbaca9e6d
@@ -39,67 +25,11 @@ table worldbank_countries
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'region.id'
-		dataType: string
-		lineageTag: f3d43e2f-a530-4e9d-a483-a1a9fed2b632
-		summarizeBy: none
-		sourceColumn: region.id
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'region.iso2code'
-		dataType: string
-		lineageTag: 2aea1651-3811-4b2a-9175-9b5c0a30a94c
-		summarizeBy: none
-		sourceColumn: region.iso2code
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'region.value'
 		dataType: string
 		lineageTag: c6729fd7-f76b-447b-84db-c56c9cf5c062
 		summarizeBy: none
 		sourceColumn: region.value
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'adminregion.id'
-		dataType: string
-		lineageTag: a699b354-f2e8-4988-8119-4d6a6b81718b
-		summarizeBy: none
-		sourceColumn: adminregion.id
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'adminregion.iso2code'
-		dataType: string
-		lineageTag: f625c558-8a35-430b-8e77-ab56fa11b3ec
-		summarizeBy: none
-		sourceColumn: adminregion.iso2code
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'adminregion.value'
-		dataType: string
-		lineageTag: 882c1987-a131-48f1-bb5a-0ed0303b9285
-		summarizeBy: none
-		sourceColumn: adminregion.value
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'incomeLevel.id'
-		dataType: string
-		lineageTag: 272adc7d-f573-4029-b923-ec863b09ebbe
-		summarizeBy: none
-		sourceColumn: incomeLevel.id
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'incomeLevel.iso2code'
-		dataType: string
-		lineageTag: 27628f11-b1ce-4091-bc7b-82b312b54fa1
-		summarizeBy: none
-		sourceColumn: incomeLevel.iso2code
 
 		annotation SummarizationSetBy = Automatic
 
@@ -111,63 +41,18 @@ table worldbank_countries
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'lendingType.id'
-		dataType: string
-		lineageTag: 2e724067-408c-498f-8f6c-e34e945bc346
-		summarizeBy: none
-		sourceColumn: lendingType.id
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'lendingType.iso2code'
-		dataType: string
-		lineageTag: e1a45a97-1216-4635-99b8-6970dcfe6329
-		summarizeBy: none
-		sourceColumn: lendingType.iso2code
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'lendingType.value'
-		dataType: string
-		lineageTag: a543a401-82e5-4cdd-aa2a-af35b2121421
-		summarizeBy: none
-		sourceColumn: lendingType.value
-
-		annotation SummarizationSetBy = Automatic
-
-	column capitalCity
-		dataType: string
-		lineageTag: c7d31dc8-0cb6-4a27-b19c-c249f4e8e071
-		summarizeBy: none
-		sourceColumn: capitalCity
-
-		annotation SummarizationSetBy = Automatic
-
-	column longitude
-		dataType: string
-		lineageTag: 61c772e4-9212-4763-9444-68007eb9e3ab
-		summarizeBy: none
-		sourceColumn: longitude
-
-		annotation SummarizationSetBy = Automatic
-
-	column latitude
-		dataType: string
-		lineageTag: c7929946-3cb1-4d6c-99a2-9fa5b80e0655
-		summarizeBy: none
-		sourceColumn: latitude
-
-		annotation SummarizationSetBy = Automatic
-
 	partition worldbank_countries = m
 		mode: import
 		source =
 				let
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\worldbank_countries.csv"), [Delimiter = ",", Columns = 19, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
-				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"id", type text}, {"iso2Code", type text}, {"name", type text}, {"region.id", type text}, {"region.iso2code", type text}, {"region.value", type text}, {"adminregion.id", type text}, {"adminregion.iso2code", type text}, {"adminregion.value", type text}, {"incomeLevel.id", type text}, {"incomeLevel.iso2code", type text}, {"incomeLevel.value", type text}, {"lendingType.id", type text}, {"lendingType.iso2code", type text}, {"lendingType.value", type text}, {"capitalCity", type text}, {"longitude", type text}, {"latitude", type text}}, "pl")
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"id", type text}, {"iso2Code", type text}, {"name", type text}, {"region.id", type text}, {"region.iso2code", type text}, {"region.value", type text}, {"adminregion.id", type text}, {"adminregion.iso2code", type text}, {"adminregion.value", type text}, {"incomeLevel.id", type text}, {"incomeLevel.iso2code", type text}, {"incomeLevel.value", type text}, {"lendingType.id", type text}, {"lendingType.iso2code", type text}, {"lendingType.value", type text}, {"capitalCity", type text}, {"longitude", type text}, {"latitude", type text}}, "pl"),
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"capitalCity", "longitude", "latitude", "fetched_at_utc", "adminregion.id", "adminregion.iso2code", "adminregion.value", "lendingType.id", "lendingType.iso2code", "lendingType.value", "incomeLevel.id", "incomeLevel.iso2code"}),
+				  #"Zmieniono kolejność kolumn" = Table.ReorderColumns(#"Usunięto kolumny", {"iso2Code", "name", "region.id", "region.iso2code", "region.value", "incomeLevel.value"}),
+				  #"Usunięto kolumny 1" = Table.RemoveColumns(#"Zmieniono kolejność kolumn", {"region.id", "region.iso2code"})
 				in
-				  #"Zmieniono typ kolumny"
+				  #"Usunięto kolumny 1"
 
 	annotation PBI_ResultType = Table
 

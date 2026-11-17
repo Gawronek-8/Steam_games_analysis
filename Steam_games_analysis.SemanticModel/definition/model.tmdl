@@ -10,7 +10,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["itad_price_history","steam_top_games","steam_upcoming_games","steam_tags","steam_categories","worldbank_countries","worldbank_gdp_per_capita_ppp","worldbank_gni_per_capita_ppp","nbp_rates_table_B","nbp_rates_table_A","steam_top_games_tags","steam_upcoming_games_tags","censored_words","fnCensor","steam_upcoming_games_categories","steam_top_games_categories","steam_current_prices"]
+annotation PBI_QueryOrder = ["itad_price_history","steam_top_games","steam_upcoming_games","steam_tags","steam_categories","worldbank_countries","worldbank_gdp_per_capita_ppp","worldbank_gni_per_capita_ppp","nbp_rates_table_B","nbp_rates","steam_top_games_tags","steam_upcoming_games_tags","censored_words","fnCensor","steam_upcoming_games_categories","steam_top_games_categories","steam_current_prices"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -20,30 +20,17 @@ ref table LocalDateTable_02f1479d-bf09-41a8-9f86-7fabec4a5659
 ref table steam_top_games
 ref table steam_upcoming_games
 ref table steam_tags
-ref table LocalDateTable_6a3e3d4a-fd09-4db6-afc6-b4aba7702182
 ref table steam_categories
-ref table LocalDateTable_8396ffc6-3629-4487-a183-9f6b790286b3
 ref table worldbank_countries
-ref table LocalDateTable_f663dd65-b187-4f79-b3b6-ae39d1013b83
 ref table worldbank_gdp_per_capita_ppp
-ref table LocalDateTable_e104698c-cb04-4ace-aa77-571134aee5c5
 ref table worldbank_gni_per_capita_ppp
-ref table LocalDateTable_75efcab7-f236-45c4-a24e-5612487b2222
-ref table nbp_rates_table_B
-ref table LocalDateTable_00b03177-f93e-4b56-9c88-a4842b1f3db1
-ref table LocalDateTable_5266c5f0-dbe3-40ed-8c2d-ce0cda70af35
-ref table nbp_rates_table_A
-ref table LocalDateTable_bdfdcd3a-cd60-4dc4-8464-8c2407f70493
-ref table LocalDateTable_764cee47-54ed-4a1d-99b2-5c8d64919c4f
+ref table nbp_rates
 ref table steam_top_games_tags
 ref table steam_upcoming_games_tags
 ref table censored_words
 ref table steam_upcoming_games_categories
 ref table steam_top_games_categories
 ref table steam_current_prices
-ref table LocalDateTable_0bc8f0a2-473f-48fc-b9fc-7cee3f24bfd1
-ref table LocalDateTable_33be30c1-f597-4dc8-bdad-f609ebeefef1
-ref table LocalDateTable_f94cbb53-495c-461c-aa7e-33743d18107e
 ref table LocalDateTable_2b42615d-0296-4d10-80e6-b119cee8b24b
 ref table Release_Calendar
 ref table LocalDateTable_e0265d42-474f-4b70-93fe-a13550db86c0
