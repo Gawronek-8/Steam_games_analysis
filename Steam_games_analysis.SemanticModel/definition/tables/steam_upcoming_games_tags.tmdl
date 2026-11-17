@@ -25,9 +25,10 @@ table steam_upcoming_games_tags
 				let
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_upcoming_games_tags.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
-				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"game_id", Int64.Type}, {"tag_id", Int64.Type}}, "pl")
+				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"game_id", Int64.Type}, {"tag_id", Int64.Type}}, "pl"),
+				  #"Usunięto duplikaty" = Table.Distinct(#"Zmieniono typ kolumny", {"tag_id", "game_id"})
 				in
-				  #"Zmieniono typ kolumny"
+				  #"Usunięto duplikaty"
 
 	annotation PBI_ResultType = Table
 

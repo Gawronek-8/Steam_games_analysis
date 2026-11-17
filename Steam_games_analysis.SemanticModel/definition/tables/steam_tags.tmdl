@@ -25,9 +25,10 @@ table steam_tags
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_tags.csv"), [Delimiter = ",", Columns = 3, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
 				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"tagid", Int64.Type}, {"name", type text}}, "pl"),
-				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"fetched_at_utc"})
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"fetched_at_utc"}),
+				  #"Usunięto duplikaty" = Table.Distinct(#"Usunięto kolumny", {"tagid"})
 				in
-				  #"Usunięto kolumny"
+				  #"Usunięto duplikaty"
 
 	annotation PBI_ResultType = Table
 

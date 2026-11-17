@@ -34,9 +34,10 @@ table steam_categories
 				  Źródło = Csv.Document(File.Contents("C:\Users\kacpe\PowerBI\data\steam_categories.csv"), [Delimiter = ",", Columns = 10, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
 				  #"Nagłówki o podwyższonym poziomie" = Table.PromoteHeaders(Źródło, [PromoteAllScalars = true]),
 				  #"Zmieniono typ kolumny" = Table.TransformColumnTypes(#"Nagłówki o podwyższonym poziomie", {{"fetched_at_utc", type datetime}, {"categoryid", Int64.Type}, {"type", Int64.Type}, {"internal_name", type text}, {"display_name", type text}, {"image_url", type text}, {"computed", type logical}, {"edit_url", type text}, {"edit_sort_order", Int64.Type}, {"show_in_search", type logical}}, "pl"),
-				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"edit_sort_order", "image_url", "edit_url", "show_in_search", "fetched_at_utc", "internal_name", "computed"})
+				  #"Usunięto kolumny" = Table.RemoveColumns(#"Zmieniono typ kolumny", {"edit_sort_order", "image_url", "edit_url", "show_in_search", "fetched_at_utc", "internal_name", "computed"}),
+				  #"Usunięto duplikaty" = Table.Distinct(#"Usunięto kolumny", {"categoryid"})
 				in
-				  #"Usunięto kolumny"
+				  #"Usunięto duplikaty"
 
 	annotation PBI_ResultType = Table
 
