@@ -32,7 +32,13 @@ def download(settings):
     end = date.fromisoformat(settings["end_date"]) if settings["end_date"] else date.today()
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     for table in settings["tables"]:
-        for chunk_start, chunk_end in date_chunks(start, end, settings["max_days_per_request"]):
+        chunks = list(date_chunks(start, end, settings["max_days_per_request"]))
+        expected = {f"table_{table}_{s}_{e}.json" for s, e in chunks}
+        for old in RAW_DIR.glob(f"table_{table}_*.json"):
+            if old.name not in expected:
+                log(f"removing raw file of an older run: {old.name}")
+                old.unlink()
+        for chunk_start, chunk_end in chunks:
             url = f"{BASE}/{table}/{chunk_start}/{chunk_end}/"
             resp = requests.get(url, params={"format": "json"}, timeout=60)
             if resp.status_code == 404: 

@@ -1,0 +1,13 @@
+{
+  "games_source_csv": "data/steam_top_games.csv",
+  "top_n_games": null,
+  "countries": [
+    "PL", "DE", "FR", "ES", "US", "JP", "AR", "TR", "CH", "CN",
+    "GB", "BR", "RU", "UA", "KR", "IN", "ID", "MX", "CA", "AU",
+    "NZ", "NO", "TH", "VN", "PH", "MY", "SG", "HK", "TW", "CL",
+    "CO", "PE", "ZA", "KZ", "SA", "AE", "IL", "KW", "QA", "CR", "UY"
+  ],
+  "filters": "price_overview",
+  "batch_size": 100,
+  "requests_per_5_min": 180
+}

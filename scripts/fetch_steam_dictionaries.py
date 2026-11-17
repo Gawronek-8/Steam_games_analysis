@@ -7,7 +7,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
-
 from fetch_top_games import flatten, log
 
 ROOT = Path(__file__).resolve().parent.parent
